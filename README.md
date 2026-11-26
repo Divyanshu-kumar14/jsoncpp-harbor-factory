@@ -16,11 +16,13 @@ Built for the Hack2Skill × Innodata AI Hackathon, Prototype Submissions module.
 
 Raw evidence, not just summaries:
 
-- `evidence/jobs/validate-task-00X-positive/*/verifier/reward.txt` → `1`
-- `evidence/jobs/validate-task-00X-negative/*/verifier/reward.txt` → `0`
+- `evidence/rewards/task-00X-positive.reward.txt` → `1`
+- `evidence/rewards/task-00X-negative.reward.txt` → `0`
 - `evidence/lint.json` → `[]`
 - `evidence/validation.json` → `"passed": true`
 - `validation.log` → every command, exit code, and Harbor summary
+
+(`evidence/jobs/` holds the full local trial payloads and is gitignored; the reward files above are copied from it verbatim.)
 
 ---
 
