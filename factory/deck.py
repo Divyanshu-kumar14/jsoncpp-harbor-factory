@@ -100,7 +100,7 @@ TERMINAL_LINES = [
     ("good", "task-002: PASS (positive=1.0, negative=0.0)"),
     ("good", "task-003: PASS (positive=1.0, negative=0.0)"),
     ("stage", "== packager =="),
-    ("good", "packager: wrote submission/jsoncpp-harbor-tasks.zip (46 entries)"),
+    ("good", "packager: wrote submission/jsoncpp-harbor-tasks.zip (47 entries)"),
 ]
 
 
@@ -373,7 +373,7 @@ def build(template: Path, output: Path, work: Path) -> None:
     for item in [
         "All components are open source: jsoncpp (MIT), Harbor, ast-grep, Docker.",
         "Full 3-task regeneration plus six Harbor trials: under 10 minutes on a 16-core laptop.",
-        "Three 183 KB source snapshots; the submission zip is 567 KB.",
+        "Task and evidence payload is 567 KB; the 11-slide deck brings the bundle to 6.5 MB.",
         "Adding a task costs one catalogue entry, one patch and one hidden test — not a new harness.",
     ]:
         add_line(tf, item, size=13, color=DARK_BODY, bullet="•", space_after=7)
@@ -381,9 +381,9 @@ def build(template: Path, output: Path, work: Path) -> None:
     # 10 — deliverables
     tf = content_slide(slides[9], "09 · DELIVERABLES", "What the judges can run")
     for item in [
-        "github.com/Divyanshu-kumar14/jsoncpp-harbor-factory — public, 75 files.",
+        "github.com/Divyanshu-kumar14/jsoncpp-harbor-factory — public, 77 files.",
         "tasks/task-001-strict-utf8 · task-002-json-pointer · task-003-roundtrip-precision.",
-        "submission/jsoncpp-harbor-tasks.zip — 46 entries, canonical Harbor layout.",
+        "submission/jsoncpp-harbor-tasks.zip — 47 entries, canonical Harbor layout.",
         "evidence/rewards/*.txt — raw 1/0 files from all six trials.",
         "validation.log · evidence/lint.json · README.md · ARCHITECTURE.md.",
         "Verified: harbor lint 0 findings; positive 1.0, negative 0.0 on every task.",
