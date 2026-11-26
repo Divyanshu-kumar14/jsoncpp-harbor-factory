@@ -1,14 +1,14 @@
 # jsoncpp harbor factory validation
-# started 2026-11-26T22:56:28Z
-[2026-11-26T22:56:28Z] ===== task-001 (task-001-strict-utf8) =====
-[2026-11-26T22:56:28Z] $ docker build -q -t factory-task-001-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment
-[2026-11-26T22:56:29Z] sha256:213b1a4f5465444abd3a6a82e48a1c4ec4e082ddedbec8f8273dc4109b1ab36b
-[2026-11-26T22:56:29Z] exit=0
-[2026-11-26T22:56:29Z] $ docker build -q -t factory-task-001-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests
-[2026-11-26T22:56:29Z] sha256:3308688d6b968338c5d3ecede66d507e2bff98a4e0a42515c647c50657e5fee2
-[2026-11-26T22:56:29Z] exit=0
-[2026-11-26T22:56:29Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:56:32Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+# started 2026-11-26T23:01:02Z
+[2026-11-26T23:01:02Z] ===== task-001 (task-001-strict-utf8) =====
+[2026-11-26T23:01:02Z] $ docker build -q -t factory-task-001-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment
+[2026-11-26T23:01:02Z] sha256:de931ad1a1d210637e4eb5ecec27a6ac2a844c89c5f98ad31e99e7587c7ded52
+[2026-11-26T23:01:02Z] exit=0
+[2026-11-26T23:01:02Z] $ docker build -q -t factory-task-001-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests
+[2026-11-26T23:01:03Z] sha256:e4fad8c5fc78d16b7bd65c0259605f6776428884498d6d6b8a382bac83c3d592
+[2026-11-26T23:01:03Z] exit=0
+[2026-11-26T23:01:03Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:06Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -24,7 +24,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 1m 50s
+Total runtime: 6m 24s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-positive
 /result.json
@@ -33,10 +33,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-positive
 `
-[2026-11-26T22:56:32Z] exit=0
-[2026-11-26T22:56:32Z] task-001: positive reward=1.0
-[2026-11-26T22:56:32Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:56:35Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:01:06Z] exit=0
+[2026-11-26T23:01:06Z] task-001: positive reward=1.0
+[2026-11-26T23:01:06Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:09Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -52,7 +52,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 46s
+Total runtime: 5m 19s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-negative
 /result.json
@@ -61,18 +61,18 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-negative
 `
-[2026-11-26T22:56:35Z] exit=0
-[2026-11-26T22:56:35Z] task-001: negative reward=0.0
-[2026-11-26T22:56:35Z] task-001: PASS (positive=1.0, negative=0.0)
-[2026-11-26T22:56:35Z] ===== task-002 (task-002-json-pointer) =====
-[2026-11-26T22:56:35Z] $ docker build -q -t factory-task-002-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment
-[2026-11-26T22:56:35Z] sha256:3a45c1982ef7ea75061aa888945ac95a500eccd1a103cd229896d388c795fb16
-[2026-11-26T22:56:35Z] exit=0
-[2026-11-26T22:56:35Z] $ docker build -q -t factory-task-002-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests
-[2026-11-26T22:56:36Z] sha256:0902d8decc2503dafb64a1805a0560138c642a1ba9fbf8add41bcd38348729fc
-[2026-11-26T22:56:36Z] exit=0
-[2026-11-26T22:56:36Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:57:24Z] 1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:43 0:00:00
+[2026-11-26T23:01:09Z] exit=0
+[2026-11-26T23:01:09Z] task-001: negative reward=0.0
+[2026-11-26T23:01:09Z] task-001: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:01:09Z] ===== task-002 (task-002-json-pointer) =====
+[2026-11-26T23:01:09Z] $ docker build -q -t factory-task-002-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment
+[2026-11-26T23:01:09Z] sha256:fe0a5ec4cebfbd0370f01141f2a717dfff53c79e3ff321204e5aa7b87cc9839b
+[2026-11-26T23:01:09Z] exit=0
+[2026-11-26T23:01:09Z] $ docker build -q -t factory-task-002-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests
+[2026-11-26T23:01:09Z] sha256:d463a52ea6b93d5b6906d5153be5db1fb53aaceffdb48569fefc74609f1116f8
+[2026-11-26T23:01:09Z] exit=0
+[2026-11-26T23:01:09Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:12Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -88,7 +88,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 43s
+Total runtime: 4m 32s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-positive
 /result.json
@@ -97,11 +97,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-positive
 `
-[2026-11-26T22:57:24Z] stderr: Agent 'oracle' exposes no native web search or fetch tools for Harbor to disable; continuing. Sandbox network policy still applies.
-[2026-11-26T22:57:24Z] exit=0
-[2026-11-26T22:57:24Z] task-002: positive reward=1.0
-[2026-11-26T22:57:24Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:58:02Z] 1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:35 0:00:00
+[2026-11-26T23:01:12Z] exit=0
+[2026-11-26T23:01:12Z] task-002: positive reward=1.0
+[2026-11-26T23:01:12Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:15Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -117,7 +116,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 35s
+Total runtime: 3m 48s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-negative
 /result.json
@@ -126,19 +125,18 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-negative
 `
-[2026-11-26T22:58:02Z] stderr: Agent 'oracle' exposes no native web search or fetch tools for Harbor to disable; continuing. Sandbox network policy still applies.
-[2026-11-26T22:58:02Z] exit=0
-[2026-11-26T22:58:02Z] task-002: negative reward=0.0
-[2026-11-26T22:58:02Z] task-002: PASS (positive=1.0, negative=0.0)
-[2026-11-26T22:58:02Z] ===== task-003 (task-003-roundtrip-precision) =====
-[2026-11-26T22:58:02Z] $ docker build -q -t factory-task-003-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment
-[2026-11-26T22:58:03Z] sha256:e8f71a9b66850b69c35686f095abfbe4224bce3e7220dd0b8c47f5fb69651be8
-[2026-11-26T22:58:03Z] exit=0
-[2026-11-26T22:58:03Z] $ docker build -q -t factory-task-003-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests
-[2026-11-26T22:58:03Z] sha256:84b1f8e0375d1dcc2b3dc55659c676147c7e609bc03e74c5a2e984e4003a8915
-[2026-11-26T22:58:03Z] exit=0
-[2026-11-26T22:58:03Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:58:53Z] 1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:45 0:00:00
+[2026-11-26T23:01:15Z] exit=0
+[2026-11-26T23:01:15Z] task-002: negative reward=0.0
+[2026-11-26T23:01:15Z] task-002: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:01:15Z] ===== task-003 (task-003-roundtrip-precision) =====
+[2026-11-26T23:01:15Z] $ docker build -q -t factory-task-003-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment
+[2026-11-26T23:01:15Z] sha256:7138c740dd7aa00b1513296dabc1dfc185aff4efb76780bb8959abd11e84faff
+[2026-11-26T23:01:15Z] exit=0
+[2026-11-26T23:01:15Z] $ docker build -q -t factory-task-003-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests
+[2026-11-26T23:01:16Z] sha256:588b29512957e1756ad14ef51d48cb7ed71687f533e90c8ef3e547350e6acd17
+[2026-11-26T23:01:16Z] exit=0
+[2026-11-26T23:01:16Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:19Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -154,7 +152,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 45s
+Total runtime: 3m 11s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-positive
 /result.json
@@ -163,11 +161,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-positive
 `
-[2026-11-26T22:58:53Z] stderr: Agent 'oracle' exposes no native web search or fetch tools for Harbor to disable; continuing. Sandbox network policy still applies.
-[2026-11-26T22:58:53Z] exit=0
-[2026-11-26T22:58:53Z] task-003: positive reward=1.0
-[2026-11-26T22:58:53Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T22:59:31Z] 1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:35 0:00:00
+[2026-11-26T23:01:19Z] exit=0
+[2026-11-26T23:01:19Z] task-003: positive reward=1.0
+[2026-11-26T23:01:19Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:01:21Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -183,7 +180,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 35s
+Total runtime: 2m 25s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-negative
 /result.json
@@ -192,8 +189,7 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-negative
 `
-[2026-11-26T22:59:31Z] stderr: Agent 'oracle' exposes no native web search or fetch tools for Harbor to disable; continuing. Sandbox network policy still applies.
-[2026-11-26T22:59:31Z] exit=0
-[2026-11-26T22:59:31Z] task-003: negative reward=0.0
-[2026-11-26T22:59:31Z] task-003: PASS (positive=1.0, negative=0.0)
-[2026-11-26T22:59:32Z] validation report: /home/rtx/github/jsoncpp-harbor-factory/evidence/validation.json passed=True
+[2026-11-26T23:01:21Z] exit=0
+[2026-11-26T23:01:21Z] task-003: negative reward=0.0
+[2026-11-26T23:01:21Z] task-003: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:01:22Z] validation report: /home/rtx/github/jsoncpp-harbor-factory/evidence/validation.json passed=True
