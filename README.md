@@ -103,6 +103,7 @@ Useful variants:
 │   ├── validator.py             # docker build + Harbor 1/0 gate
 │   ├── packager.py              # harbor lint + submission zip
 │   ├── catalog.py               # declarative task specs
+│   ├── deck.py                  # fills the Innodata IDEA SUBMISSION deck
 │   ├── baseline.py              # archive verification, patch preflight
 │   ├── config.py                # paths and constants
 │   ├── assets/task-00X/         # instruction, patch, hidden test
@@ -113,6 +114,14 @@ Useful variants:
 │   └── task-003-roundtrip-precision/
 ├── evidence/                    # mining, lint, validation, raw rewards
 └── validation.log
+```
+
+The submission deck is generated into `submission/Innodata_IDEA_SUBMISSION_jsoncpp.pptx`; the packager adds it to the zip.
+
+```bash
+uv run --with python-pptx --with pillow --no-project python factory/deck.py \
+  --template "/path/to/Innodata _ IDEA SUBMISSION.pptx" \
+  --output submission/Innodata_IDEA_SUBMISSION_jsoncpp.pptx
 ```
 
 Each task follows Harbor's standardized layout:
@@ -181,7 +190,7 @@ The validator automates exactly this and records both rewards.
 
 ## Notes and open items
 
-- **Dashboard template zip** was not available in this environment. `packager.py --template <zip>` compares the template's entries against generated tasks by basename and writes `evidence/template_check.json`. The submission zip currently uses the canonical Harbor layout.
+- **Dashboard template**: the supplied 11-slide `Innodata _ IDEA SUBMISSION.pptx` is filled in place by `factory/deck.py` and bundled into the submission zip. The task packages themselves use the canonical Harbor layout.
 - **Google Doc URL / exact doc baseline hash** were not available; the baseline was confirmed interactively as `93acc7b`. If the document specifies a different hash, update `BASELINE.txt` and run `./generate.sh --refresh-baseline`.
 - `harbor==0.25.0` is enforced by `generate.sh`; newer/older versions abort the run.
 - No API keys, credentials, or network access are needed at task runtime (`network_mode = "no-network"`).
