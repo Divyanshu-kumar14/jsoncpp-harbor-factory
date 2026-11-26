@@ -50,7 +50,7 @@ One command, every stage
 ## Slide 7
 06 · ARCHITECTURE
 Isolated grading by construction
-The verifier rebuilds the agent's source in a fresh container.
+Harbor starts a separate verifier that rebuilds the agent's source.
 •  Only /app/jsoncpp crosses the boundary; /app/build is deliberately excluded.
 •  Hidden tests are baked into tests/Dockerfile and never enter the agent image.
 •  A tampered build directory cannot influence the reward — the verifier rebuilds.
@@ -59,8 +59,8 @@ Every reward is a raw 1 or 0 in /logs/verifier/reward.txt.
 ## Slide 8
 07 · STACK
 Small, open, reproducible
-•  Python 3 standard library — miner, generator, validator, packager.
-•  Harbor 0.25.0 exactly; task schema 1.4 with separate verifier.
+•  Harbor 0.25.0 is the execution engine: task images, separate verifier, artifacts, rewards.
+•  Task schema 1.4; hidden tests live only in the verifier image.
 •  Docker 29 · Ubuntu 24.04 pinned by SHA-256 digest.
 •  GCC 13 · CMake · static libjsoncpp.a built in-image.
 •  ast-grep for typed function mining; gh CLI for issue context.

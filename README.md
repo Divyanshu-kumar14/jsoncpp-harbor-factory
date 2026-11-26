@@ -1,10 +1,20 @@
-# jsoncpp → Harbor v0.25.x task factory
+# Five Harbor tasks. Every one proven non-trivial — or it never ships.
 
-An automated pipeline that mines [open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) at a pinned baseline and emits independent, containerized [Harbor](https://docs.harborframework.com/) task packages, each validated with a two-sided gate: **reward 1 with the reference solution, reward 0 without it**.
+**Pinned jsoncpp in. Five containerized AI-evaluation tasks out. Every task scores 1 with the reference solution and 0 without it — or the factory refuses to package it.**
 
-Built for the Hack2Skill × Innodata AI Hackathon, Prototype Submissions module. Harbor 0.25.0 is the load-bearing execution and grading engine: every task image, sandbox, verifier and reward flows through it.
+[![verify](https://github.com/Divyanshu-kumar14/jsoncpp-harbor-factory/actions/workflows/verify.yml/badge.svg)](https://github.com/Divyanshu-kumar14/jsoncpp-harbor-factory/actions/workflows/verify.yml)
+
+Built for Innodata's AI Hackathon × Hack2Skill, Prototype Submissions module. Harbor 0.25.0 is the load-bearing execution and grading engine: every task image, sandbox, separate verifier, artifact transfer and reward file flows through it.
 
 ![One command: mine 579 functions, generate 5 tasks, pass 10/10 Harbor gate trials](docs/terminal.png)
+
+## The micro-crisis
+
+A benchmark task is not a prompt. It is an instruction, a pinned container, a reference patch, hidden tests, and a negative control. Hand-built, that is days of work per task. Worse, one capability that already landed upstream silently turns the reward into a free 1, and one leaked test turns the score into noise. Most generators cannot tell the difference.
+
+This factory can. It mines the pinned repository, refuses capabilities that already exist, compiles the reference patch, and runs Harbor twice — once with the solution, once with a no-op. Only then does a task become a package.
+
+## Pipeline
 
 ```mermaid
 flowchart LR
@@ -17,7 +27,7 @@ flowchart LR
 
 ---
 
-## Result at a glance
+## Hard results
 
 Integrity audit: [`gate/submission-integrity.md`](gate/submission-integrity.md) — 0 unverified numeric claims, 0 blocking items.
 
@@ -41,7 +51,7 @@ Raw evidence, not just summaries:
 
 ---
 
-## Why the task set changed (important)
+## The novelty gate: a task can be refused
 
 The original brief specified control-character rejection, duplicate-key rejection, and 17-digit precision. **All three are already implemented at the pinned baseline**, so a patch would be a no-op and the no-solution gate would return 1. Verified at runtime:
 
@@ -62,6 +72,16 @@ With the baseline fixed, the factory instead implements capabilities that are ge
 | 005 | RFC-invalid `01`, `1.`, `+1`, `1.e2` parse successfully | 14 hidden checks fail before the patch |
 
 The generator enforces this permanently with a **novelty gate**: every task declares markers that must be absent from the baseline. A task whose feature already exists is refused, not packaged.
+
+---
+
+## Why Harbor is load-bearing
+
+Harbor is not a wrapper around a patch generator. It owns the parts that make a benchmark trustworthy: the task image, the sandbox, the dedicated verifier image, the artifact boundary between agent and grader, and the reward file the framework reads.
+
+Remove Harbor and this project collapses to a source miner with no isolation, no hidden-test boundary, and no machine-checked verdict.
+
+> By making Harbor 0.25.0 the foundation of the execution pipeline, one pinned C++ repository becomes five isolated, reproducible trials — each with a raw 1/0 reward — with the evaluation harness owned by Harbor.
 
 ---
 
@@ -87,13 +107,13 @@ Requirements: Docker, `uv`, a current Python 3, `git`, `gh` (optional, for issue
 ```bash
 git clone https://github.com/Divyanshu-kumar14/jsoncpp-harbor-factory
 cd jsoncpp-harbor-factory
-
-# Installs harbor==0.25.0 if needed, then mines, generates, lints,
-# validates (1/0) and packages.
 ./generate.sh --repo jsoncpp --n 5
+harbor lint --json tasks/*
 ```
 
-Useful variants:
+That is the whole path: mine, generate, lint, validate 10 trials, package, then re-check the packages.
+
+### Options
 
 ```bash
 ./generate.sh --n 5 --skip-validate          # fast authoring loop
@@ -111,6 +131,10 @@ Useful variants:
 ```text
 .
 ├── generate.sh                  # one-command pipeline
+├── tools/claim_check.py         # CI: every prose number must trace to evidence
+├── .github/workflows/verify.yml # lint + compile + claim audit on every push
+├── gate/                        # integrity audit + rules mapping
+├── docs/terminal.png            # one-command visual used above
 ├── BASELINE.txt                 # pinned commit + archive checksum
 ├── baseline/
 │   └── jsoncpp-93acc7b.tar.gz   # offline, deterministic source snapshot

@@ -344,7 +344,7 @@ def build(template: Path, output: Path, work: Path) -> None:
     content_slide(slides[6], "06 · ARCHITECTURE", "Isolated grading by construction",
                   height=0.95)
     slides[6].shapes.add_picture(str(arch_png), Inches(0.55), Inches(1.9), width=Inches(8.9))
-    caption(slides[6], "The verifier rebuilds the agent's source in a fresh container.", 2.98)
+    caption(slides[6], "Harbor starts a separate verifier that rebuilds the agent's source.", 2.98)
     note_box(slides[6], 0.6, 3.38, 8.8, 1.3, [
         "Only /app/jsoncpp crosses the boundary; /app/build is deliberately excluded.",
         "Hidden tests are baked into tests/Dockerfile and never enter the agent image.",
@@ -358,8 +358,8 @@ def build(template: Path, output: Path, work: Path) -> None:
     # 08 — stack
     tf = content_slide(slides[7], "07 · STACK", "Small, open, reproducible")
     for item in [
-        "Python 3 standard library — miner, generator, validator, packager.",
-        "Harbor 0.25.0 exactly; task schema 1.4 with separate verifier.",
+        "Harbor 0.25.0 is the execution engine: task images, separate verifier, artifacts, rewards.",
+        "Task schema 1.4; hidden tests live only in the verifier image.",
         "Docker 29 · Ubuntu 24.04 pinned by SHA-256 digest.",
         "GCC 13 · CMake · static libjsoncpp.a built in-image.",
         "ast-grep for typed function mining; gh CLI for issue context.",

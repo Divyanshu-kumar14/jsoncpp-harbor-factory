@@ -18,7 +18,7 @@ Verified claims: 43 distinct numeric claims   Unverified: 0   Rewrites proposed:
 
 ## Phase 1 — Numbers (mechanical)
 
-Tool: `submission-integrity/tools/claim_check.py`
+Tool: `tools/claim_check.py` (vendored from the submission-integrity skill; also runs in CI)
 
 ```text
 prose:    README.md ARCHITECTURE.md gate/deck_text.md
@@ -33,7 +33,7 @@ compile failures).
 
 ## Phase 2 — Absolute language
 
-Ten grep hits; nine are claims (all backable) and one is the word `Provenance`.
+Grep hits for absolute language were reviewed individually. Every claim is backed:
 
 | Claim | Backing |
 | --- | --- |

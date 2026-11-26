@@ -1,0 +1,35 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.12.17"
+
+      - name: Install Harbor 0.25.0
+        run: uv tool install harbor==0.25.0
+
+      - name: Harbor lint (all five tasks)
+        run: harbor lint --json tasks/*
+
+      - name: Compile factory modules
+        run: python3 -m compileall -q factory
+
+      - name: Verify every numeric claim against committed evidence
+        run: |
+          python3 tools/claim_check.py \
+            --prose README.md ARCHITECTURE.md gate/deck_text.md gate/SUBMISSION_RULES.md \
+            --evidence evidence validation.log BASELINE.txt submission/MANIFEST.json tasks docs
