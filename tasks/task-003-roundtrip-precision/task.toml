@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = "innodata/jsoncpp-roundtrip-precision"
+version = "1.0.0"
+description = "Add StreamWriterBuilder precisionMode=roundTrip so doubles serialize as the shortest string that parses back to the identical value."
+authors = [{ name = "Innodata AI Hackathon Team" }]
+keywords = ["jsoncpp", "writer", "floating-point", "round-trip", "ieee754"]
+
+[metadata]
+author_name = "Innodata AI Hackathon Team"
+difficulty = "hard"
+category = "cpp-json-writer"
+tags = ["jsoncpp", "writer", "floating-point", "round-trip", "ieee754"]
+expert_time_estimate_min = 45.0
+junior_time_estimate_min = 90.0
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "StreamWriterBuilder.precisionMode"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900
+os = "linux"
+
+[environment.env]
+
+[solution.env]

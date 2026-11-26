@@ -1,0 +1,111 @@
+diff --git a/include/json/value.h b/include/json/value.h
+index 171f20a..d8a7b9d 100644
+--- a/include/json/value.h
++++ b/include/json/value.h
+@@ -594,6 +594,20 @@ public:
+   Value const* findArray(const String& key) const;
+   Value const* findObject(const String& key) const;
+ 
++  /// Resolve an RFC 6901 JSON Pointer relative to this value.
++  ///
++  /// The empty pointer resolves to this value. A pointer that is syntactically
++  /// invalid throws Json::LogicError; a syntactically valid pointer that does
++  /// not resolve (missing member, array index out of range, traversal through
++  /// a scalar) returns nullptr.
++  ///
++  /// Object tokens are matched byte-for-byte after decoding `~1` to `/` and
++  /// `~0` to `~`. Array tokens must be `0` or a decimal integer without a
++  /// leading zero and without a sign.
++  Value* findPointer(const String& pointer);
++  /// \copydoc findPointer(const String&)
++  Value const* findPointer(const String& pointer) const;
++
+   /// Most general and efficient version of object-mutators.
+   /// \note As stated elsewhere, behavior is undefined if (end-begin) >= 2^30
+   /// \return non-zero, but JSON_ASSERT if this is neither object nor nullValue.
+diff --git a/src/lib_json/json_value.cpp b/src/lib_json/json_value.cpp
+index 5d3ddfd..7e74038 100644
+--- a/src/lib_json/json_value.cpp
++++ b/src/lib_json/json_value.cpp
+@@ -1168,6 +1168,81 @@ Value const* Value::find(const String& key) const {
+   return find(key.data(), key.data() + key.length());
+ }
+ 
++namespace {
++bool decodePointerToken(const String& raw, String& token) {
++  token.clear();
++  token.reserve(raw.size());
++  for (size_t i = 0; i < raw.size(); ++i) {
++    if (raw[i] != '~') {
++      token += raw[i];
++      continue;
++    }
++    if (i + 1 == raw.size())
++      return false;
++    const char escape = raw[++i];
++    if (escape == '0')
++      token += '~';
++    else if (escape == '1')
++      token += '/';
++    else
++      return false;
++  }
++  return true;
++}
++} // namespace
++
++Value const* Value::findPointer(const String& pointer) const {
++  if (pointer.empty())
++    return this;
++  if (pointer[0] != '/')
++    throwLogicError("JSON Pointer must be empty or start with '/'");
++
++  const Value* current = this;
++  size_t pos = 1;
++  while (true) {
++    const size_t slash = pointer.find('/', pos);
++    const String raw =
++        pointer.substr(pos, slash == String::npos ? String::npos : slash - pos);
++    String token;
++    if (!decodePointerToken(raw, token))
++      throwLogicError("Invalid escape sequence in JSON Pointer");
++
++    if (current->isObject()) {
++      current = current->find(token);
++      if (current == nullptr)
++        return nullptr;
++    } else if (current->isArray()) {
++      // RFC 6901 array index: "0" or a non-zero digit followed by digits.
++      if (token.empty() || (token.size() > 1 && token[0] == '0'))
++        return nullptr;
++      LargestUInt index = 0;
++      for (const char c : token) {
++        if (c < '0' || c > '9')
++          return nullptr;
++        const LargestUInt digit = static_cast<LargestUInt>(c - '0');
++        if (index > (maxLargestUInt - digit) / 10)
++          return nullptr;
++        index = index * 10 + digit;
++      }
++      if (index >= static_cast<LargestUInt>(current->size()))
++        return nullptr;
++      current = &(*current)[static_cast<ArrayIndex>(index)];
++    } else {
++      return nullptr;
++    }
++
++    if (slash == String::npos)
++      break;
++    pos = slash + 1;
++  }
++  return current;
++}
++
++Value* Value::findPointer(const String& pointer) {
++  return const_cast<Value*>(
++      static_cast<const Value*>(this)->findPointer(pointer));
++}
++
+ Value const* Value::findNull(const String& key) const {
+   return findValue<Value, &Value::isNull>(key);
+ }

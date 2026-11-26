@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Factory scratch space (baseline clone, extracted trees, negative-control copies)
+.work/
+.factory-out/
+
+# Harbor job payloads (raw rewards are copied to evidence/rewards/)
+jobs/
+evidence/jobs/
+
+# OS noise
+.DS_Store

@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = @TASK_NAME@
+version = @TASK_VERSION@
+description = @DESCRIPTION@
+authors = [{ name = @AUTHOR@ }]
+keywords = @TAGS@
+
+[metadata]
+author_name = @AUTHOR@
+difficulty = "@DIFFICULTY@"
+category = "@CATEGORY@"
+tags = @TAGS@
+expert_time_estimate_min = @EXPERT_MIN@
+junior_time_estimate_min = @JUNIOR_MIN@
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "@FEATURE@"
+
+[verifier]
+timeout_sec = @VERIFIER_TIMEOUT@
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = @AGENT_TIMEOUT@
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = @BUILD_TIMEOUT@
+os = "linux"
+
+[environment.env]
+
+[solution.env]

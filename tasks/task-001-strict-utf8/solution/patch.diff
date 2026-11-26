@@ -1,0 +1,129 @@
+diff --git a/include/json/reader.h b/include/json/reader.h
+index d4db75a..67e0861 100644
+--- a/include/json/reader.h
++++ b/include/json/reader.h
+@@ -349,6 +349,11 @@ public:
+    * - `"rejectDupKeys": false or true`
+    *   - If true, `parse()` returns false when a key is duplicated within an
+    *     object.
++   * - `"validateUTF8": false or true`
++   *   - If true, `parse()` rejects string values whose raw bytes are not
++   *     well-formed UTF-8, as required by RFC 8259, Section 8.1. Escaped
++   *     `\u` sequences are unaffected. Defaults to false for compatibility
++   *     with inputs that are not UTF-8.
+    * - `"allowSpecialFloats": false or true`
+    *   - If true, special float values (NaNs and infinities) are allowed and
+    *     their values are lossfree restorable.
+diff --git a/src/lib_json/json_reader.cpp b/src/lib_json/json_reader.cpp
+index 39af2c4..9badaf8 100644
+--- a/src/lib_json/json_reader.cpp
++++ b/src/lib_json/json_reader.cpp
+@@ -862,6 +862,7 @@ public:
+   bool rejectDupKeys_;
+   bool allowSpecialFloats_;
+   bool skipBom_;
++  bool validateUTF8_;
+   size_t stackLimit_;
+ }; // OurFeatures
+ 
+@@ -1689,6 +1690,47 @@ bool OurReader::decodeDouble(Token& token, Value& decoded) {
+   return true;
+ }
+ 
++namespace {
++// Length in bytes of the well-formed UTF-8 sequence starting at `s`, or 0 if
++// the sequence is malformed (RFC 3629). `avail` bytes are readable from `s`.
++size_t utf8SequenceLength(const unsigned char* s, size_t avail) {
++  const unsigned char lead = s[0];
++  if (lead < 0x80)
++    return 1;
++
++  size_t len = 0;
++  unsigned char secondLo = 0x80;
++  unsigned char secondHi = 0xBF;
++  if (lead >= 0xC2 && lead <= 0xDF) {
++    len = 2;
++  } else if (lead >= 0xE0 && lead <= 0xEF) {
++    len = 3;
++    if (lead == 0xE0)
++      secondLo = 0xA0; // overlong 3-byte form
++    else if (lead == 0xED)
++      secondHi = 0x9F; // UTF-16 surrogate half
++  } else if (lead >= 0xF0 && lead <= 0xF4) {
++    len = 4;
++    if (lead == 0xF0)
++      secondLo = 0x90; // overlong 4-byte form
++    else if (lead == 0xF4)
++      secondHi = 0x8F; // code point above U+10FFFF
++  } else {
++    return 0; // continuation byte, overlong lead, or invalid lead
++  }
++
++  if (avail < len)
++    return 0; // truncated sequence
++  if (s[1] < secondLo || s[1] > secondHi)
++    return 0;
++  for (size_t i = 2; i < len; ++i) {
++    if (s[i] < 0x80 || s[i] > 0xBF)
++      return 0;
++  }
++  return len;
++}
++} // namespace
++
+ bool OurReader::decodeString(Token& token) {
+   String decoded_string;
+   if (!decodeString(token, decoded_string))
+@@ -1747,8 +1789,19 @@ bool OurReader::decodeString(Token& token, String& decoded) {
+         return addError("Bad escape sequence in string", token, current);
+       }
+     } else {
+-      if (static_cast<unsigned char>(c) < 0x20)
++      const unsigned char byte = static_cast<unsigned char>(c);
++      if (byte < 0x20)
+         return addError("Control character in string", token, current - 1);
++      if (features_.validateUTF8_ && byte >= 0x80) {
++        const Location lead = current - 1;
++        const size_t avail = static_cast<size_t>(end - lead);
++        const size_t len = utf8SequenceLength(
++            reinterpret_cast<const unsigned char*>(lead), avail);
++        if (len == 0)
++          return addError("Invalid UTF-8 sequence in string", token, lead);
++        for (size_t i = 1; i < len; ++i)
++          decoded += *current++;
++      }
+       decoded += c;
+     }
+   }
+@@ -1951,6 +2004,7 @@ CharReader* CharReaderBuilder::newCharReader() const {
+   features.rejectDupKeys_ = settings_["rejectDupKeys"].asBool();
+   features.allowSpecialFloats_ = settings_["allowSpecialFloats"].asBool();
+   features.skipBom_ = settings_["skipBom"].asBool();
++  features.validateUTF8_ = settings_["validateUTF8"].asBool();
+   return new OurCharReader(collectComments, features);
+ }
+ 
+@@ -1968,6 +2022,7 @@ bool CharReaderBuilder::validate(Json::Value* invalid) const {
+       "rejectDupKeys",
+       "allowSpecialFloats",
+       "skipBom",
++      "validateUTF8",
+   };
+   for (auto si = settings_.begin(); si != settings_.end(); ++si) {
+     auto key = si.name();
+@@ -1998,6 +2053,7 @@ void CharReaderBuilder::strictMode(Json::Value* settings) {
+   (*settings)["rejectDupKeys"] = true;
+   (*settings)["allowSpecialFloats"] = false;
+   (*settings)["skipBom"] = true;
++  (*settings)["validateUTF8"] = true;
+   //! [CharReaderBuilderStrictMode]
+ }
+ // static
+@@ -2015,6 +2071,7 @@ void CharReaderBuilder::setDefaults(Json::Value* settings) {
+   (*settings)["rejectDupKeys"] = false;
+   (*settings)["allowSpecialFloats"] = false;
+   (*settings)["skipBom"] = true;
++  (*settings)["validateUTF8"] = false;
+   //! [CharReaderBuilderDefaults]
+ }
+ // static

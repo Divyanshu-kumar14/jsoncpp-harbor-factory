@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = "innodata/jsoncpp-strict-utf8"
+version = "1.0.0"
+description = "Add a CharReaderBuilder validateUTF8 setting that rejects malformed UTF-8 string bytes per RFC 8259, with line/column diagnostics."
+authors = [{ name = "Innodata AI Hackathon Team" }]
+keywords = ["jsoncpp", "reader", "utf8", "rfc8259", "security"]
+
+[metadata]
+author_name = "Innodata AI Hackathon Team"
+difficulty = "easy"
+category = "cpp-json-reader"
+tags = ["jsoncpp", "reader", "utf8", "rfc8259", "security"]
+expert_time_estimate_min = 20.0
+junior_time_estimate_min = 40.0
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "CharReaderBuilder.validateUTF8"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900
+os = "linux"
+
+[environment.env]
+
+[solution.env]

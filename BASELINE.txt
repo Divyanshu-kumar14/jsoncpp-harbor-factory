@@ -1,0 +1,10 @@
+repo=https://github.com/open-source-parsers/jsoncpp
+commit=93acc7b155048f1a66c43235cc205519f1e7a6ea
+commit_date=2026-10-26
+describe=1.9.8-18-g93acc7b
+declared_version=1.10.0
+version_note=include/json/version.h declares 1.10.0, but upstream publishes no v1.10.0 tag; the newest tag is 1.9.8. The baseline is therefore pinned by commit, not by tag.
+archive=baseline/jsoncpp-93acc7b.tar.gz
+archive_sha256=1e29b66c58b56ca8d936fba105e0e44d1224db6d2e898a86b51fde5d0243b698
+archive_command=git archive --format=tar.gz --prefix=jsoncpp/ 93acc7b155048f1a66c43235cc205519f1e7a6ea
+verified_at=2026-11-27

@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = "innodata/jsoncpp-json-pointer"
+version = "1.0.0"
+description = "Add const and mutable Value::findPointer methods implementing RFC 6901 tokens, escapes, and array index grammar."
+authors = [{ name = "Innodata AI Hackathon Team" }]
+keywords = ["jsoncpp", "dom", "json-pointer", "rfc6901", "api"]
+
+[metadata]
+author_name = "Innodata AI Hackathon Team"
+difficulty = "medium"
+category = "cpp-json-dom"
+tags = ["jsoncpp", "dom", "json-pointer", "rfc6901", "api"]
+expert_time_estimate_min = 30.0
+junior_time_estimate_min = 60.0
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "Value.findPointer"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900
+os = "linux"
+
+[environment.env]
+
+[solution.env]

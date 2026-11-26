@@ -1,0 +1,3297 @@
+{
+  "generated_at": "2026-11-26T22:45:52.801472+00:00",
+  "repo": "https://github.com/open-source-parsers/jsoncpp",
+  "commit": "93acc7b155048f1a66c43235cc205519f1e7a6ea",
+  "source": "/home/rtx/github/jsoncpp-harbor-factory/.work/baseline-src",
+  "functions": {
+    "engine": "ast-grep",
+    "files": {
+      "src/lib_json/json_reader.cpp": [
+        {
+          "name": "Features::Features",
+          "line": 55,
+          "signature": "Features::Features() = default;"
+        },
+        {
+          "name": "Features::all",
+          "line": 57,
+          "signature": "Features Features::all()"
+        },
+        {
+          "name": "Features::strictMode",
+          "line": 59,
+          "signature": "Features Features::strictMode()"
+        },
+        {
+          "name": "Reader::containsNewLine",
+          "line": 71,
+          "signature": "bool Reader::containsNewLine(Reader::Location begin, Reader::Location end)"
+        },
+        {
+          "name": "Reader::Reader",
+          "line": 78,
+          "signature": "Reader::Reader() : features_(Features::all())"
+        },
+        {
+          "name": "Reader::Reader",
+          "line": 80,
+          "signature": "Reader::Reader(const Features& features) : features_(features)"
+        },
+        {
+          "name": "Reader::parse",
+          "line": 82,
+          "signature": "bool Reader::parse(const std::string& document, Value& root,\n                   bool collectComments)"
+        },
+        {
+          "name": "Reader::parse",
+          "line": 90,
+          "signature": "bool Reader::parse(std::istream& is, Value& root, bool collectComments)"
+        },
+        {
+          "name": "Reader::parse",
+          "line": 97,
+          "signature": "bool Reader::parse(const char* beginDoc, const char* endDoc, Value& root,\n                   bool collectComments)"
+        },
+        {
+          "name": "Reader::readValue",
+          "line": 136,
+          "signature": "bool Reader::readValue()"
+        },
+        {
+          "name": "Reader::readTokenSkippingComments",
+          "line": 218,
+          "signature": "bool Reader::readTokenSkippingComments(Token& token)"
+        },
+        {
+          "name": "Reader::readToken",
+          "line": 228,
+          "signature": "bool Reader::readToken(Token& token)"
+        },
+        {
+          "name": "Reader::skipSpaces",
+          "line": 299,
+          "signature": "void Reader::skipSpaces()"
+        },
+        {
+          "name": "Reader::match",
+          "line": 309,
+          "signature": "bool Reader::match(const Char* pattern, int patternLength)"
+        },
+        {
+          "name": "Reader::readComment",
+          "line": 320,
+          "signature": "bool Reader::readComment()"
+        },
+        {
+          "name": "Reader::normalizeEOL",
+          "line": 343,
+          "signature": "String Reader::normalizeEOL(Reader::Location begin, Reader::Location end)"
+        },
+        {
+          "name": "Reader::addComment",
+          "line": 362,
+          "signature": "void Reader::addComment(Location begin, Location end,\n                        CommentPlacement placement)"
+        },
+        {
+          "name": "Reader::readCStyleComment",
+          "line": 374,
+          "signature": "bool Reader::readCStyleComment()"
+        },
+        {
+          "name": "Reader::readCppStyleComment",
+          "line": 383,
+          "signature": "bool Reader::readCppStyleComment()"
+        },
+        {
+          "name": "Reader::readNumber",
+          "line": 399,
+          "signature": "void Reader::readNumber()"
+        },
+        {
+          "name": "Reader::readString",
+          "line": 421,
+          "signature": "bool Reader::readString()"
+        },
+        {
+          "name": "Reader::readObject",
+          "line": 433,
+          "signature": "bool Reader::readObject(Token& token)"
+        },
+        {
+          "name": "Reader::readArray",
+          "line": 480,
+          "signature": "bool Reader::readArray(Token& token)"
+        },
+        {
+          "name": "Reader::decodeNumber",
+          "line": 515,
+          "signature": "bool Reader::decodeNumber(Token& token)"
+        },
+        {
+          "name": "Reader::decodeNumber",
+          "line": 525,
+          "signature": "bool Reader::decodeNumber(Token& token, Value& decoded)"
+        },
+        {
+          "name": "Reader::decodeDouble",
+          "line": 568,
+          "signature": "bool Reader::decodeDouble(Token& token)"
+        },
+        {
+          "name": "Reader::decodeDouble",
+          "line": 578,
+          "signature": "bool Reader::decodeDouble(Token& token, Value& decoded)"
+        },
+        {
+          "name": "Reader::decodeString",
+          "line": 601,
+          "signature": "bool Reader::decodeString(Token& token)"
+        },
+        {
+          "name": "Reader::decodeString",
+          "line": 612,
+          "signature": "bool Reader::decodeString(Token& token, String& decoded)"
+        },
+        {
+          "name": "Reader::decodeUnicodeCodePoint",
+          "line": 667,
+          "signature": "bool Reader::decodeUnicodeCodePoint(Token& token, Location& current,\n                                    Location end, unsigned int& unicode)"
+        },
+        {
+          "name": "Reader::decodeUnicodeEscapeSequence",
+          "line": 692,
+          "signature": "bool Reader::decodeUnicodeEscapeSequence(Token& token, Location& current,\n                                         Location end,\n                                         unsigned int& ret_unicode)"
+        },
+        {
+          "name": "Reader::addError",
+          "line": 718,
+          "signature": "bool Reader::addError(const String& message, Token& token, Location extra)"
+        },
+        {
+          "name": "Reader::recoverFromError",
+          "line": 727,
+          "signature": "bool Reader::recoverFromError(TokenType skipUntilToken)"
+        },
+        {
+          "name": "Reader::addErrorAndRecover",
+          "line": 740,
+          "signature": "bool Reader::addErrorAndRecover(const String& message, Token& token,\n                                TokenType skipUntilToken)"
+        },
+        {
+          "name": "Reader::currentValue",
+          "line": 746,
+          "signature": "Value& Reader::currentValue()"
+        },
+        {
+          "name": "Reader::getNextChar",
+          "line": 748,
+          "signature": "Reader::Char Reader::getNextChar()"
+        },
+        {
+          "name": "Reader::getLocationLineAndColumn",
+          "line": 754,
+          "signature": "void Reader::getLocationLineAndColumn(Location location, int& line,\n                                      int& column) const"
+        },
+        {
+          "name": "Reader::getLocationLineAndColumn",
+          "line": 776,
+          "signature": "String Reader::getLocationLineAndColumn(Location location) const"
+        },
+        {
+          "name": "Reader::getFormatedErrorMessages",
+          "line": 785,
+          "signature": "String Reader::getFormatedErrorMessages() const"
+        },
+        {
+          "name": "Reader::getFormattedErrorMessages",
+          "line": 789,
+          "signature": "String Reader::getFormattedErrorMessages() const"
+        },
+        {
+          "name": "Reader::getStructuredErrors",
+          "line": 802,
+          "signature": "std::vector<Reader::StructuredError> Reader::getStructuredErrors() const"
+        },
+        {
+          "name": "Reader::pushError",
+          "line": 814,
+          "signature": "bool Reader::pushError(const Value& value, const String& message)"
+        },
+        {
+          "name": "Reader::pushError",
+          "line": 830,
+          "signature": "bool Reader::pushError(const Value& value, const String& message,\n                       const Value& extra)"
+        },
+        {
+          "name": "Reader::good",
+          "line": 848,
+          "signature": "bool Reader::good() const"
+        },
+        {
+          "name": "OurFeatures::all",
+          "line": 868,
+          "signature": "OurFeatures OurFeatures::all()"
+        },
+        {
+          "name": "newlineScanByteCountForTesting",
+          "line": 992,
+          "signature": "JSON_API size_t& newlineScanByteCountForTesting()"
+        },
+        {
+          "name": "OurReader::containsNewLine",
+          "line": 997,
+          "signature": "bool OurReader::containsNewLine(OurReader::Location begin,\n                                OurReader::Location end)"
+        },
+        {
+          "name": "OurReader::OurReader",
+          "line": 1003,
+          "signature": "OurReader::OurReader(OurFeatures const& features) : features_(features)"
+        },
+        {
+          "name": "OurReader::parse",
+          "line": 1005,
+          "signature": "bool OurReader::parse(const char* beginDoc, const char* endDoc, Value& root,\n                      bool collectComments)"
+        },
+        {
+          "name": "OurReader::readValue",
+          "line": 1051,
+          "signature": "bool OurReader::readValue()"
+        },
+        {
+          "name": "OurReader::readTokenSkippingComments",
+          "line": 1152,
+          "signature": "bool OurReader::readTokenSkippingComments(Token& token)"
+        },
+        {
+          "name": "OurReader::readToken",
+          "line": 1162,
+          "signature": "bool OurReader::readToken(Token& token)"
+        },
+        {
+          "name": "OurReader::skipSpaces",
+          "line": 1273,
+          "signature": "void OurReader::skipSpaces()"
+        },
+        {
+          "name": "OurReader::skipCommentTokens",
+          "line": 1288,
+          "signature": "void OurReader::skipCommentTokens()"
+        },
+        {
+          "name": "OurReader::skipBom",
+          "line": 1301,
+          "signature": "void OurReader::skipBom(bool skipBom)"
+        },
+        {
+          "name": "OurReader::match",
+          "line": 1311,
+          "signature": "bool OurReader::match(const Char* pattern, int patternLength)"
+        },
+        {
+          "name": "OurReader::readComment",
+          "line": 1322,
+          "signature": "bool OurReader::readComment()"
+        },
+        {
+          "name": "OurReader::normalizeEOL",
+          "line": 1360,
+          "signature": "String OurReader::normalizeEOL(OurReader::Location begin,\n                               OurReader::Location end)"
+        },
+        {
+          "name": "OurReader::addComment",
+          "line": 1380,
+          "signature": "void OurReader::addComment(Location begin, Location end,\n                           CommentPlacement placement)"
+        },
+        {
+          "name": "OurReader::readCStyleComment",
+          "line": 1392,
+          "signature": "bool OurReader::readCStyleComment(bool* containsNewLineResult)"
+        },
+        {
+          "name": "OurReader::readCppStyleComment",
+          "line": 1406,
+          "signature": "bool OurReader::readCppStyleComment()"
+        },
+        {
+          "name": "OurReader::readNumber",
+          "line": 1422,
+          "signature": "bool OurReader::readNumber(bool checkInf)"
+        },
+        {
+          "name": "OurReader::readString",
+          "line": 1448,
+          "signature": "bool OurReader::readString()"
+        },
+        {
+          "name": "OurReader::readStringSingleQuote",
+          "line": 1460,
+          "signature": "bool OurReader::readStringSingleQuote()"
+        },
+        {
+          "name": "OurReader::readObject",
+          "line": 1472,
+          "signature": "bool OurReader::readObject(Token& token)"
+        },
+        {
+          "name": "OurReader::readArray",
+          "line": 1527,
+          "signature": "bool OurReader::readArray(Token& token)"
+        },
+        {
+          "name": "OurReader::decodeNumber",
+          "line": 1569,
+          "signature": "bool OurReader::decodeNumber(Token& token)"
+        },
+        {
+          "name": "OurReader::decodeNumber",
+          "line": 1579,
+          "signature": "bool OurReader::decodeNumber(Token& token, Value& decoded)"
+        },
+        {
+          "name": "OurReader::decodeDouble",
+          "line": 1659,
+          "signature": "bool OurReader::decodeDouble(Token& token)"
+        },
+        {
+          "name": "OurReader::decodeDouble",
+          "line": 1669,
+          "signature": "bool OurReader::decodeDouble(Token& token, Value& decoded)"
+        },
+        {
+          "name": "OurReader::decodeString",
+          "line": 1692,
+          "signature": "bool OurReader::decodeString(Token& token)"
+        },
+        {
+          "name": "OurReader::decodeString",
+          "line": 1703,
+          "signature": "bool OurReader::decodeString(Token& token, String& decoded)"
+        },
+        {
+          "name": "OurReader::decodeUnicodeCodePoint",
+          "line": 1758,
+          "signature": "bool OurReader::decodeUnicodeCodePoint(Token& token, Location& current,\n                                       Location end, unsigned int& unicode)"
+        },
+        {
+          "name": "OurReader::decodeUnicodeEscapeSequence",
+          "line": 1783,
+          "signature": "bool OurReader::decodeUnicodeEscapeSequence(Token& token, Location& current,\n                                            Location end,\n                                            unsigned int& ret_uni"
+        },
+        {
+          "name": "OurReader::addError",
+          "line": 1809,
+          "signature": "bool OurReader::addError(const String& message, Token& token, Location extra)"
+        },
+        {
+          "name": "OurReader::recoverFromError",
+          "line": 1818,
+          "signature": "bool OurReader::recoverFromError(TokenType skipUntilToken)"
+        },
+        {
+          "name": "OurReader::addErrorAndRecover",
+          "line": 1831,
+          "signature": "bool OurReader::addErrorAndRecover(const String& message, Token& token,\n                                   TokenType skipUntilToken)"
+        },
+        {
+          "name": "OurReader::currentValue",
+          "line": 1837,
+          "signature": "Value& OurReader::currentValue()"
+        },
+        {
+          "name": "OurReader::getNextChar",
+          "line": 1839,
+          "signature": "OurReader::Char OurReader::getNextChar()"
+        },
+        {
+          "name": "OurReader::getLocationLineAndColumn",
+          "line": 1845,
+          "signature": "void OurReader::getLocationLineAndColumn(Location location, int& line,\n                                         int& column) const"
+        },
+        {
+          "name": "OurReader::getLocationLineAndColumn",
+          "line": 1867,
+          "signature": "String OurReader::getLocationLineAndColumn(Location location) const"
+        },
+        {
+          "name": "OurReader::getFormattedErrorMessages",
+          "line": 1875,
+          "signature": "String OurReader::getFormattedErrorMessages() const"
+        },
+        {
+          "name": "OurReader::getStructuredErrors",
+          "line": 1888,
+          "signature": "std::vector<CharReader::StructuredError>\nOurReader::getStructuredErrors() const"
+        },
+        {
+          "name": "OurCharReader",
+          "line": 1904,
+          "signature": "OurCharReader(bool collectComments, OurFeatures const& features)\n      : CharReader(\n            std::unique_ptr<OurImpl>(new OurImpl(collectComments, features)))"
+        },
+        {
+          "name": "OurImpl",
+          "line": 1911,
+          "signature": "OurImpl(bool collectComments, OurFeatures const& features)\n        : collectComments_(collectComments), reader_(features)"
+        },
+        {
+          "name": "parse",
+          "line": 1914,
+          "signature": "bool parse(char const* beginDoc, char const* endDoc, Value* root,\n               String* errs) override"
+        },
+        {
+          "name": "getStructuredErrors",
+          "line": 1923,
+          "signature": "std::vector<CharReader::StructuredError>\n    getStructuredErrors() const override"
+        },
+        {
+          "name": "CharReaderBuilder::CharReaderBuilder",
+          "line": 1934,
+          "signature": "CharReaderBuilder::CharReaderBuilder()"
+        },
+        {
+          "name": "CharReaderBuilder",
+          "line": 1935,
+          "signature": "CharReaderBuilder::~CharReaderBuilder() = default;"
+        },
+        {
+          "name": "CharReaderBuilder::newCharReader",
+          "line": 1936,
+          "signature": "CharReader* CharReaderBuilder::newCharReader() const"
+        },
+        {
+          "name": "CharReaderBuilder::validate",
+          "line": 1957,
+          "signature": "bool CharReaderBuilder::validate(Json::Value* invalid) const"
+        },
+        {
+          "name": "CharReaderBuilder::strictMode",
+          "line": 1988,
+          "signature": "void CharReaderBuilder::strictMode(Json::Value* settings)"
+        },
+        {
+          "name": "CharReaderBuilder::setDefaults",
+          "line": 2004,
+          "signature": "void CharReaderBuilder::setDefaults(Json::Value* settings)"
+        },
+        {
+          "name": "CharReaderBuilder::ecma404Mode",
+          "line": 2021,
+          "signature": "void CharReaderBuilder::ecma404Mode(Json::Value* settings)"
+        },
+        {
+          "name": "CharReader::getStructuredErrors",
+          "line": 2037,
+          "signature": "std::vector<CharReader::StructuredError>\nCharReader::getStructuredErrors() const"
+        },
+        {
+          "name": "CharReader::parse",
+          "line": 2042,
+          "signature": "bool CharReader::parse(char const* beginDoc, char const* endDoc, Value* root,\n                       String* errs)"
+        },
+        {
+          "name": "parseFromStream",
+          "line": 2050,
+          "signature": "bool parseFromStream(CharReader::Factory const& fact, IStream& sin, Value* root,\n                     String* errs)"
+        },
+        {
+          "name": "parseFromStream",
+          "line": 2062,
+          "signature": "IStream& operator>>(IStream& sin, Value& root)"
+        }
+      ],
+      "src/lib_json/json_value.cpp": [
+        {
+          "name": "msvc_pre1900_c99_vsnprintf",
+          "line": 23,
+          "signature": "static int msvc_pre1900_c99_vsnprintf(char* outBuf, size_t size,\n                                      const char* format, va_list ap)"
+        },
+        {
+          "name": "msvc_pre1900_c99_snprintf",
+          "line": 33,
+          "signature": "int JSON_API msvc_pre1900_c99_snprintf(char* outBuf, size_t size,\n                                       const char* format, ...)"
+        },
+        {
+          "name": "cloneUnique",
+          "line": 52,
+          "signature": "static std::unique_ptr<T> cloneUnique(const std::unique_ptr<T>& p)"
+        },
+        {
+          "name": "Value::nullSingleton",
+          "line": 70,
+          "signature": "Value const& Value::nullSingleton()"
+        },
+        {
+          "name": "InRange",
+          "line": 87,
+          "signature": "static inline bool InRange(double d, T min, U max)"
+        },
+        {
+          "name": "integerToDouble",
+          "line": 94,
+          "signature": "static inline double integerToDouble(Json::UInt64 value)"
+        },
+        {
+          "name": "integerToDouble",
+          "line": 99,
+          "signature": "static inline double integerToDouble(T value)"
+        },
+        {
+          "name": "InRange",
+          "line": 104,
+          "signature": "static inline bool InRange(double d, T min, U max)"
+        },
+        {
+          "name": "duplicateStringValue",
+          "line": 117,
+          "signature": "static inline char* duplicateStringValue(const char* value, size_t length)"
+        },
+        {
+          "name": "duplicateAndPrefixStringValue",
+          "line": 135,
+          "signature": "static inline char* duplicateAndPrefixStringValue(const char* value,\n                                                  unsigned int length)"
+        },
+        {
+          "name": "decodePrefixedString",
+          "line": 155,
+          "signature": "inline static void decodePrefixedString(bool isPrefixed, char const* prefixed,\n                                        unsigned* length, char const** value)"
+        },
+        {
+          "name": "releasePrefixedStringValue",
+          "line": 169,
+          "signature": "static inline void releasePrefixedStringValue(char* value)"
+        },
+        {
+          "name": "releaseStringValue",
+          "line": 177,
+          "signature": "static inline void releaseStringValue(char* value, unsigned length)"
+        },
+        {
+          "name": "releasePrefixedStringValue",
+          "line": 184,
+          "signature": "static inline void releasePrefixedStringValue(char* value)"
+        },
+        {
+          "name": "releaseStringValue",
+          "line": 185,
+          "signature": "static inline void releaseStringValue(char* value, unsigned)"
+        },
+        {
+          "name": "valueTypeToString",
+          "line": 199,
+          "signature": "static const char* valueTypeToString(ValueType type)"
+        },
+        {
+          "name": "Exception::Exception",
+          "line": 231,
+          "signature": "Exception::Exception(String msg) : msg_(std::move(msg))"
+        },
+        {
+          "name": "Exception",
+          "line": 232,
+          "signature": "Exception::~Exception() noexcept = default;"
+        },
+        {
+          "name": "Exception::what",
+          "line": 233,
+          "signature": "char const* Exception::what() const noexcept"
+        },
+        {
+          "name": "RuntimeError::RuntimeError",
+          "line": 234,
+          "signature": "RuntimeError::RuntimeError(String const& msg) : Exception(msg)"
+        },
+        {
+          "name": "LogicError::LogicError",
+          "line": 235,
+          "signature": "LogicError::LogicError(String const& msg) : Exception(msg)"
+        },
+        {
+          "name": "throwRuntimeError",
+          "line": 236,
+          "signature": "JSONCPP_NORETURN void throwRuntimeError(String const& msg)"
+        },
+        {
+          "name": "throwLogicError",
+          "line": 239,
+          "signature": "JSONCPP_NORETURN void throwLogicError(String const& msg)"
+        },
+        {
+          "name": "throwRuntimeError",
+          "line": 243,
+          "signature": "JSONCPP_NORETURN void throwRuntimeError(String const& msg)"
+        },
+        {
+          "name": "throwLogicError",
+          "line": 247,
+          "signature": "JSONCPP_NORETURN void throwLogicError(String const& msg)"
+        },
+        {
+          "name": "Value::CZString::CZString",
+          "line": 267,
+          "signature": "Value::CZString::CZString(ArrayIndex index) : cstr_(nullptr), index_(index)"
+        },
+        {
+          "name": "Value::CZString::CZString",
+          "line": 269,
+          "signature": "Value::CZString::CZString(char const* str, unsigned length,\n                          DuplicationPolicy allocate)\n    : cstr_(str)"
+        },
+        {
+          "name": "Value::CZString::CZString",
+          "line": 277,
+          "signature": "Value::CZString::CZString(const CZString& other)"
+        },
+        {
+          "name": "Value::CZString::CZString",
+          "line": 297,
+          "signature": "Value::CZString::CZString(CZString&& other) noexcept : cstr_(other.cstr_)"
+        },
+        {
+          "name": "CZString",
+          "line": 307,
+          "signature": "Value::CZString::~CZString()"
+        },
+        {
+          "name": "Value::CZString::swap",
+          "line": 317,
+          "signature": "void Value::CZString::swap(CZString& other)"
+        },
+        {
+          "name": "temp",
+          "line": 322,
+          "signature": "Value::CZString& Value::CZString::operator=(const CZString& other)"
+        },
+        {
+          "name": "if",
+          "line": 331,
+          "signature": "Value::CZString& Value::CZString::operator=(CZString&& other) noexcept"
+        },
+        {
+          "name": "if",
+          "line": 348,
+          "signature": "bool Value::CZString::operator<(const CZString& other) const"
+        },
+        {
+          "name": "if",
+          "line": 365,
+          "signature": "bool Value::CZString::operator==(const CZString& other) const"
+        },
+        {
+          "name": "Value::CZString::index",
+          "line": 379,
+          "signature": "ArrayIndex Value::CZString::index() const"
+        },
+        {
+          "name": "Value::CZString::data",
+          "line": 382,
+          "signature": "const char* Value::CZString::data() const"
+        },
+        {
+          "name": "Value::CZString::length",
+          "line": 383,
+          "signature": "unsigned Value::CZString::length() const"
+        },
+        {
+          "name": "Value::CZString::isStaticString",
+          "line": 384,
+          "signature": "bool Value::CZString::isStaticString() const"
+        },
+        {
+          "name": "Value::Value",
+          "line": 401,
+          "signature": "Value::Value(ValueType type)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 430,
+          "signature": "Value::Value(Int value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 435,
+          "signature": "Value::Value(UInt value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 440,
+          "signature": "Value::Value(Int64 value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 444,
+          "signature": "Value::Value(UInt64 value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 450,
+          "signature": "Value::Value(double value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 455,
+          "signature": "Value::Value(const char* value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 463,
+          "signature": "Value::Value(const char* begin, const char* end)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 469,
+          "signature": "Value::Value(const String& value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 475,
+          "signature": "Value::Value(const StaticString& value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 480,
+          "signature": "Value::Value(bool value)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 485,
+          "signature": "Value::Value(const Value& other)"
+        },
+        {
+          "name": "Value::Value",
+          "line": 490,
+          "signature": "Value::Value(Value&& other) noexcept"
+        },
+        {
+          "name": "Value",
+          "line": 495,
+          "signature": "Value::~Value()"
+        },
+        {
+          "name": "Value",
+          "line": 500,
+          "signature": "Value& Value::operator=(const Value& other)"
+        },
+        {
+          "name": "Value::swapPayload",
+          "line": 510,
+          "signature": "void Value::swapPayload(Value& other)"
+        },
+        {
+          "name": "Value::copyPayload",
+          "line": 515,
+          "signature": "void Value::copyPayload(const Value& other)"
+        },
+        {
+          "name": "Value::swap",
+          "line": 520,
+          "signature": "void Value::swap(Value& other)"
+        },
+        {
+          "name": "Value::copy",
+          "line": 527,
+          "signature": "void Value::copy(const Value& other)"
+        },
+        {
+          "name": "Value::type",
+          "line": 532,
+          "signature": "ValueType Value::type() const"
+        },
+        {
+          "name": "Value::compare",
+          "line": 536,
+          "signature": "int Value::compare(const Value& other) const"
+        },
+        {
+          "name": "type",
+          "line": 544,
+          "signature": "bool Value::operator<(const Value& other) const"
+        },
+        {
+          "name": "if",
+          "line": 600,
+          "signature": "bool Value::operator==(const Value& other) const"
+        },
+        {
+          "name": "Value::asCString",
+          "line": 644,
+          "signature": "const char* Value::asCString() const"
+        },
+        {
+          "name": "Value::getCStringLength",
+          "line": 657,
+          "signature": "unsigned Value::getCStringLength() const"
+        },
+        {
+          "name": "Value::getString",
+          "line": 670,
+          "signature": "bool Value::getString(char const** begin, char const** end) const"
+        },
+        {
+          "name": "Value::asString",
+          "line": 682,
+          "signature": "String Value::asString() const"
+        },
+        {
+          "name": "Value::asInt",
+          "line": 708,
+          "signature": "Value::Int Value::asInt() const"
+        },
+        {
+          "name": "Value::asUInt",
+          "line": 730,
+          "signature": "Value::UInt Value::asUInt() const"
+        },
+        {
+          "name": "Value::asInt64",
+          "line": 754,
+          "signature": "Value::Int64 Value::asInt64() const"
+        },
+        {
+          "name": "Value::asUInt64",
+          "line": 780,
+          "signature": "Value::UInt64 Value::asUInt64() const"
+        },
+        {
+          "name": "Value::asLargestInt",
+          "line": 802,
+          "signature": "LargestInt Value::asLargestInt() const"
+        },
+        {
+          "name": "Value::asLargestUInt",
+          "line": 810,
+          "signature": "LargestUInt Value::asLargestUInt() const"
+        },
+        {
+          "name": "Value::asDouble",
+          "line": 818,
+          "signature": "double Value::asDouble() const"
+        },
+        {
+          "name": "Value::asFloat",
+          "line": 840,
+          "signature": "float Value::asFloat() const"
+        },
+        {
+          "name": "Value::asBool",
+          "line": 863,
+          "signature": "bool Value::asBool() const"
+        },
+        {
+          "name": "Value::isConvertibleTo",
+          "line": 884,
+          "signature": "bool Value::isConvertibleTo(ValueType other) const"
+        },
+        {
+          "name": "Value::size",
+          "line": 918,
+          "signature": "ArrayIndex Value::size() const"
+        },
+        {
+          "name": "Value::empty",
+          "line": 941,
+          "signature": "bool Value::empty() const"
+        },
+        {
+          "name": "bool",
+          "line": 947,
+          "signature": "Value::operator bool() const"
+        },
+        {
+          "name": "Value::clear",
+          "line": 949,
+          "signature": "void Value::clear()"
+        },
+        {
+          "name": "Value::resize",
+          "line": 965,
+          "signature": "void Value::resize(ArrayIndex newSize)"
+        },
+        {
+          "name": "JSON_ASSERT_MESSAGE",
+          "line": 986,
+          "signature": "Value& Value::operator[](ArrayIndex index)"
+        },
+        {
+          "name": "JSON_ASSERT_MESSAGE",
+          "line": 1011,
+          "signature": "Value& Value::operator[](int index)"
+        },
+        {
+          "name": "JSON_ASSERT_MESSAGE",
+          "line": 1018,
+          "signature": "const Value& Value::operator[](ArrayIndex index) const"
+        },
+        {
+          "name": "JSON_ASSERT_MESSAGE",
+          "line": 1031,
+          "signature": "const Value& Value::operator[](int index) const"
+        },
+        {
+          "name": "Value::initBasic",
+          "line": 1038,
+          "signature": "void Value::initBasic(ValueType type, bool allocated)"
+        },
+        {
+          "name": "Value::dupPayload",
+          "line": 1046,
+          "signature": "void Value::dupPayload(const Value& other)"
+        },
+        {
+          "name": "Value::releasePayload",
+          "line": 1078,
+          "signature": "void Value::releasePayload()"
+        },
+        {
+          "name": "Value::dupMeta",
+          "line": 1099,
+          "signature": "void Value::dupMeta(const Value& other)"
+        },
+        {
+          "name": "Value::resolveReference",
+          "line": 1108,
+          "signature": "Value& Value::resolveReference(const char* key)"
+        },
+        {
+          "name": "Value::resolveReference",
+          "line": 1128,
+          "signature": "Value& Value::resolveReference(char const* key, char const* end)"
+        },
+        {
+          "name": "Value::get",
+          "line": 1147,
+          "signature": "Value Value::get(ArrayIndex index, const Value& defaultValue) const"
+        },
+        {
+          "name": "Value::isValidIndex",
+          "line": 1152,
+          "signature": "bool Value::isValidIndex(ArrayIndex index) const"
+        },
+        {
+          "name": "Value::find",
+          "line": 1154,
+          "signature": "Value const* Value::find(char const* begin, char const* end) const"
+        },
+        {
+          "name": "Value::find",
+          "line": 1167,
+          "signature": "Value const* Value::find(const String& key) const"
+        },
+        {
+          "name": "Value::findNull",
+          "line": 1171,
+          "signature": "Value const* Value::findNull(const String& key) const"
+        },
+        {
+          "name": "Value::findBool",
+          "line": 1174,
+          "signature": "Value const* Value::findBool(const String& key) const"
+        },
+        {
+          "name": "Value::findInt",
+          "line": 1177,
+          "signature": "Value const* Value::findInt(const String& key) const"
+        },
+        {
+          "name": "Value::findInt64",
+          "line": 1180,
+          "signature": "Value const* Value::findInt64(const String& key) const"
+        },
+        {
+          "name": "Value::findUInt",
+          "line": 1183,
+          "signature": "Value const* Value::findUInt(const String& key) const"
+        },
+        {
+          "name": "Value::findUInt64",
+          "line": 1186,
+          "signature": "Value const* Value::findUInt64(const String& key) const"
+        },
+        {
+          "name": "Value::findIntegral",
+          "line": 1189,
+          "signature": "Value const* Value::findIntegral(const String& key) const"
+        },
+        {
+          "name": "Value::findDouble",
+          "line": 1192,
+          "signature": "Value const* Value::findDouble(const String& key) const"
+        },
+        {
+          "name": "Value::findNumeric",
+          "line": 1195,
+          "signature": "Value const* Value::findNumeric(const String& key) const"
+        },
+        {
+          "name": "Value::findString",
+          "line": 1198,
+          "signature": "Value const* Value::findString(const String& key) const"
+        },
+        {
+          "name": "Value::findArray",
+          "line": 1201,
+          "signature": "Value const* Value::findArray(const String& key) const"
+        },
+        {
+          "name": "Value::findObject",
+          "line": 1204,
+          "signature": "Value const* Value::findObject(const String& key) const"
+        },
+        {
+          "name": "Value::demand",
+          "line": 1208,
+          "signature": "Value* Value::demand(char const* begin, char const* end)"
+        },
+        {
+          "name": "find",
+          "line": 1214,
+          "signature": "const Value& Value::operator[](const char* key) const"
+        },
+        {
+          "name": "find",
+          "line": 1220,
+          "signature": "Value const& Value::operator[](const String& key) const"
+        },
+        {
+          "name": "resolveReference",
+          "line": 1227,
+          "signature": "Value& Value::operator[](const char* key)"
+        },
+        {
+          "name": "resolveReference",
+          "line": 1231,
+          "signature": "Value& Value::operator[](const String& key)"
+        },
+        {
+          "name": "resolveReference",
+          "line": 1235,
+          "signature": "Value& Value::operator[](const StaticString& key)"
+        },
+        {
+          "name": "Value::append",
+          "line": 1239,
+          "signature": "Value& Value::append(const Value& value)"
+        },
+        {
+          "name": "Value::append",
+          "line": 1241,
+          "signature": "Value& Value::append(Value&& value)"
+        },
+        {
+          "name": "Value::insert",
+          "line": 1251,
+          "signature": "bool Value::insert(ArrayIndex index, const Value& newValue)"
+        },
+        {
+          "name": "Value::insert",
+          "line": 1255,
+          "signature": "bool Value::insert(ArrayIndex index, Value&& newValue)"
+        },
+        {
+          "name": "Value::get",
+          "line": 1269,
+          "signature": "Value Value::get(char const* begin, char const* end,\n                 Value const& defaultValue) const"
+        },
+        {
+          "name": "Value::get",
+          "line": 1274,
+          "signature": "Value Value::get(char const* key, Value const& defaultValue) const"
+        },
+        {
+          "name": "Value::get",
+          "line": 1277,
+          "signature": "Value Value::get(String const& key, Value const& defaultValue) const"
+        },
+        {
+          "name": "Value::removeMember",
+          "line": 1281,
+          "signature": "bool Value::removeMember(const char* begin, const char* end, Value* removed)"
+        },
+        {
+          "name": "Value::removeMember",
+          "line": 1295,
+          "signature": "bool Value::removeMember(const char* key, Value* removed)"
+        },
+        {
+          "name": "Value::removeMember",
+          "line": 1298,
+          "signature": "bool Value::removeMember(String const& key, Value* removed)"
+        },
+        {
+          "name": "Value::removeMember",
+          "line": 1302,
+          "signature": "void Value::removeMember(const char* key)"
+        },
+        {
+          "name": "Value::removeMember",
+          "line": 1313,
+          "signature": "void Value::removeMember(const String& key)"
+        },
+        {
+          "name": "Value::removeIndex",
+          "line": 1321,
+          "signature": "bool Value::removeIndex(ArrayIndex index, Value* removed)"
+        },
+        {
+          "name": "Value::isMember",
+          "line": 1345,
+          "signature": "bool Value::isMember(char const* begin, char const* end) const"
+        },
+        {
+          "name": "Value::isMember",
+          "line": 1349,
+          "signature": "bool Value::isMember(char const* key) const"
+        },
+        {
+          "name": "Value::isMember",
+          "line": 1352,
+          "signature": "bool Value::isMember(String const& key) const"
+        },
+        {
+          "name": "Value::getMemberNames",
+          "line": 1356,
+          "signature": "Value::Members Value::getMemberNames() const"
+        },
+        {
+          "name": "IsIntegral",
+          "line": 1372,
+          "signature": "static bool IsIntegral(double d)"
+        },
+        {
+          "name": "Value::isNull",
+          "line": 1377,
+          "signature": "bool Value::isNull() const"
+        },
+        {
+          "name": "Value::isBool",
+          "line": 1379,
+          "signature": "bool Value::isBool() const"
+        },
+        {
+          "name": "Value::isInt",
+          "line": 1381,
+          "signature": "bool Value::isInt() const"
+        },
+        {
+          "name": "Value::isUInt",
+          "line": 1400,
+          "signature": "bool Value::isUInt() const"
+        },
+        {
+          "name": "Value::isInt64",
+          "line": 1423,
+          "signature": "bool Value::isInt64() const"
+        },
+        {
+          "name": "Value::isUInt64",
+          "line": 1447,
+          "signature": "bool Value::isUInt64() const"
+        },
+        {
+          "name": "Value::isIntegral",
+          "line": 1467,
+          "signature": "bool Value::isIntegral() const"
+        },
+        {
+          "name": "Value::isDouble",
+          "line": 1493,
+          "signature": "bool Value::isDouble() const"
+        },
+        {
+          "name": "Value::isNumeric",
+          "line": 1497,
+          "signature": "bool Value::isNumeric() const"
+        },
+        {
+          "name": "Value::isString",
+          "line": 1499,
+          "signature": "bool Value::isString() const"
+        },
+        {
+          "name": "Value::isArray",
+          "line": 1501,
+          "signature": "bool Value::isArray() const"
+        },
+        {
+          "name": "Value::isObject",
+          "line": 1503,
+          "signature": "bool Value::isObject() const"
+        },
+        {
+          "name": "Value::Comments::Comments",
+          "line": 1505,
+          "signature": "Value::Comments::Comments(const Comments& that)\n    : ptr_"
+        },
+        {
+          "name": "Value::Comments::Comments",
+          "line": 1508,
+          "signature": "Value::Comments::Comments(Comments&& that) noexcept\n    : ptr_"
+        },
+        {
+          "name": "cloneUnique",
+          "line": 1511,
+          "signature": "Value::Comments& Value::Comments::operator=(const Comments& that)"
+        },
+        {
+          "name": "std::move",
+          "line": 1516,
+          "signature": "Value::Comments& Value::Comments::operator=(Comments&& that) noexcept"
+        },
+        {
+          "name": "Value::Comments::has",
+          "line": 1521,
+          "signature": "bool Value::Comments::has(CommentPlacement slot) const"
+        },
+        {
+          "name": "Value::Comments::get",
+          "line": 1525,
+          "signature": "String Value::Comments::get(CommentPlacement slot) const"
+        },
+        {
+          "name": "Value::Comments::set",
+          "line": 1531,
+          "signature": "void Value::Comments::set(CommentPlacement slot, String comment)"
+        },
+        {
+          "name": "Value::setComment",
+          "line": 1539,
+          "signature": "void Value::setComment(String comment, CommentPlacement placement)"
+        },
+        {
+          "name": "Value::hasComment",
+          "line": 1550,
+          "signature": "bool Value::hasComment(CommentPlacement placement) const"
+        },
+        {
+          "name": "Value::getComment",
+          "line": 1554,
+          "signature": "String Value::getComment(CommentPlacement placement) const"
+        },
+        {
+          "name": "Value::setOffsetStart",
+          "line": 1558,
+          "signature": "void Value::setOffsetStart(ptrdiff_t start)"
+        },
+        {
+          "name": "Value::setOffsetLimit",
+          "line": 1560,
+          "signature": "void Value::setOffsetLimit(ptrdiff_t limit)"
+        },
+        {
+          "name": "Value::getOffsetStart",
+          "line": 1562,
+          "signature": "ptrdiff_t Value::getOffsetStart() const"
+        },
+        {
+          "name": "Value::getOffsetLimit",
+          "line": 1564,
+          "signature": "ptrdiff_t Value::getOffsetLimit() const"
+        },
+        {
+          "name": "Value::toStyledString",
+          "line": 1566,
+          "signature": "String Value::toStyledString() const"
+        },
+        {
+          "name": "Value::begin",
+          "line": 1576,
+          "signature": "Value::const_iterator Value::begin() const"
+        },
+        {
+          "name": "Value::end",
+          "line": 1589,
+          "signature": "Value::const_iterator Value::end() const"
+        },
+        {
+          "name": "Value::begin",
+          "line": 1602,
+          "signature": "Value::iterator Value::begin()"
+        },
+        {
+          "name": "Value::end",
+          "line": 1615,
+          "signature": "Value::iterator Value::end()"
+        },
+        {
+          "name": "PathArgument::PathArgument",
+          "line": 1631,
+          "signature": "PathArgument::PathArgument() = default;"
+        },
+        {
+          "name": "PathArgument::PathArgument",
+          "line": 1633,
+          "signature": "PathArgument::PathArgument(ArrayIndex index)\n    : index_(index), kind_(kindIndex)"
+        },
+        {
+          "name": "PathArgument::PathArgument",
+          "line": 1636,
+          "signature": "PathArgument::PathArgument(const char* key) : key_(key), kind_(kindKey)"
+        },
+        {
+          "name": "PathArgument::PathArgument",
+          "line": 1638,
+          "signature": "PathArgument::PathArgument(String key) : key_(std::move(key)), kind_(kindKey)"
+        },
+        {
+          "name": "Path::Path",
+          "line": 1643,
+          "signature": "Path::Path(const String& path, const PathArgument& a1, const PathArgument& a2,\n           const PathArgument& a3, const PathArgument& a4,\n           const PathArgument& a5)"
+        },
+        {
+          "name": "Path::makePath",
+          "line": 1656,
+          "signature": "void Path::makePath(const String& path, const InArgs& in)"
+        },
+        {
+          "name": "Path::addPathInArg",
+          "line": 1687,
+          "signature": "void Path::addPathInArg(const String& /*path*/, const InArgs& in,\n                        InArgs::const_iterator& itInArg,\n                        PathArgument::Kind kind)"
+        },
+        {
+          "name": "Path::invalidPath",
+          "line": 1699,
+          "signature": "void Path::invalidPath(const String& /*path*/, int /*location*/)"
+        },
+        {
+          "name": "Path::resolve",
+          "line": 1703,
+          "signature": "const Value& Path::resolve(const Value& root) const"
+        },
+        {
+          "name": "Path::resolve",
+          "line": 1728,
+          "signature": "Value Path::resolve(const Value& root, const Value& defaultValue) const"
+        },
+        {
+          "name": "Path::make",
+          "line": 1746,
+          "signature": "Value& Path::make(Value& root) const"
+        },
+        {
+          "name": "version",
+          "line": 1764,
+          "signature": "const char* version()"
+        }
+      ],
+      "src/lib_json/json_writer.cpp": [
+        {
+          "name": "valueToString",
+          "line": 31,
+          "signature": "String valueToString(LargestInt value)"
+        },
+        {
+          "name": "valueToString",
+          "line": 47,
+          "signature": "String valueToString(LargestUInt value)"
+        },
+        {
+          "name": "valueToString",
+          "line": 57,
+          "signature": "String valueToString(Int value)"
+        },
+        {
+          "name": "valueToString",
+          "line": 59,
+          "signature": "String valueToString(UInt value)"
+        },
+        {
+          "name": "valueToString",
+          "line": 64,
+          "signature": "String valueToString(double value, bool useSpecialFloats,\n                     unsigned int precision, PrecisionType precisionType)"
+        },
+        {
+          "name": "valueToString",
+          "line": 111,
+          "signature": "String valueToString(double value, unsigned int precision,\n                     PrecisionType precisionType)"
+        },
+        {
+          "name": "valueToString",
+          "line": 116,
+          "signature": "String valueToString(bool value)"
+        },
+        {
+          "name": "doesAnyCharRequireEscaping",
+          "line": 118,
+          "signature": "static bool doesAnyCharRequireEscaping(char const* s, size_t n)"
+        },
+        {
+          "name": "utf8ToCodepoint",
+          "line": 126,
+          "signature": "static unsigned int utf8ToCodepoint(const char*& s, const char* e)"
+        },
+        {
+          "name": "toHex16Bit",
+          "line": 194,
+          "signature": "static String toHex16Bit(unsigned int x)"
+        },
+        {
+          "name": "appendRaw",
+          "line": 205,
+          "signature": "static void appendRaw(String& result, unsigned ch)"
+        },
+        {
+          "name": "appendHex",
+          "line": 209,
+          "signature": "static void appendHex(String& result, unsigned ch)"
+        },
+        {
+          "name": "valueToQuotedStringN",
+          "line": 213,
+          "signature": "static String valueToQuotedStringN(const char* value, size_t length,\n                                   bool emitUTF8 = false)"
+        },
+        {
+          "name": "valueToQuotedString",
+          "line": 290,
+          "signature": "String valueToQuotedString(const char* value)"
+        },
+        {
+          "name": "valueToQuotedString",
+          "line": 294,
+          "signature": "String valueToQuotedString(const char* value, size_t length)"
+        },
+        {
+          "name": "Writer",
+          "line": 300,
+          "signature": "Writer::~Writer() = default;"
+        },
+        {
+          "name": "FastWriter::FastWriter",
+          "line": 305,
+          "signature": "FastWriter::FastWriter()\n\n    = default;"
+        },
+        {
+          "name": "FastWriter::enableYAMLCompatibility",
+          "line": 309,
+          "signature": "void FastWriter::enableYAMLCompatibility()"
+        },
+        {
+          "name": "FastWriter::dropNullPlaceholders",
+          "line": 311,
+          "signature": "void FastWriter::dropNullPlaceholders()"
+        },
+        {
+          "name": "FastWriter::omitEndingLineFeed",
+          "line": 313,
+          "signature": "void FastWriter::omitEndingLineFeed()"
+        },
+        {
+          "name": "FastWriter::write",
+          "line": 315,
+          "signature": "String FastWriter::write(const Value& root)"
+        },
+        {
+          "name": "FastWriter::writeValue",
+          "line": 323,
+          "signature": "void FastWriter::writeValue(const Value& value)"
+        },
+        {
+          "name": "StyledWriter::StyledWriter",
+          "line": 379,
+          "signature": "StyledWriter::StyledWriter() = default;"
+        },
+        {
+          "name": "StyledWriter::write",
+          "line": 381,
+          "signature": "String StyledWriter::write(const Value& root)"
+        },
+        {
+          "name": "StyledWriter::writeValue",
+          "line": 392,
+          "signature": "void StyledWriter::writeValue(const Value& value)"
+        },
+        {
+          "name": "StyledWriter::writeArrayValue",
+          "line": 452,
+          "signature": "void StyledWriter::writeArrayValue(const Value& value)"
+        },
+        {
+          "name": "StyledWriter::isMultilineArray",
+          "line": 495,
+          "signature": "bool StyledWriter::isMultilineArray(const Value& value)"
+        },
+        {
+          "name": "StyledWriter::pushValue",
+          "line": 522,
+          "signature": "void StyledWriter::pushValue(const String& value)"
+        },
+        {
+          "name": "StyledWriter::writeIndent",
+          "line": 529,
+          "signature": "void StyledWriter::writeIndent()"
+        },
+        {
+          "name": "StyledWriter::writeWithIndent",
+          "line": 540,
+          "signature": "void StyledWriter::writeWithIndent(const String& value)"
+        },
+        {
+          "name": "StyledWriter::indent",
+          "line": 545,
+          "signature": "void StyledWriter::indent()"
+        },
+        {
+          "name": "StyledWriter::unindent",
+          "line": 547,
+          "signature": "void StyledWriter::unindent()"
+        },
+        {
+          "name": "StyledWriter::writeCommentBeforeValue",
+          "line": 552,
+          "signature": "void StyledWriter::writeCommentBeforeValue(const Value& root)"
+        },
+        {
+          "name": "StyledWriter::writeCommentAfterValueOnSameLine",
+          "line": 571,
+          "signature": "void StyledWriter::writeCommentAfterValueOnSameLine(const Value& root)"
+        },
+        {
+          "name": "StyledWriter::hasCommentForValue",
+          "line": 582,
+          "signature": "bool StyledWriter::hasCommentForValue(const Value& value)"
+        },
+        {
+          "name": "StyledStreamWriter::StyledStreamWriter",
+          "line": 591,
+          "signature": "StyledStreamWriter::StyledStreamWriter(String indentation)\n    : document_(nullptr), indentation_(std::move(indentation)),\n      addChildValues_(), indented_(false)"
+        },
+        {
+          "name": "StyledStreamWriter::write",
+          "line": 595,
+          "signature": "void StyledStreamWriter::write(OStream& out, const Value& root)"
+        },
+        {
+          "name": "StyledStreamWriter::writeValue",
+          "line": 610,
+          "signature": "void StyledStreamWriter::writeValue(const Value& value)"
+        },
+        {
+          "name": "StyledStreamWriter::writeArrayValue",
+          "line": 670,
+          "signature": "void StyledStreamWriter::writeArrayValue(const Value& value)"
+        },
+        {
+          "name": "StyledStreamWriter::isMultilineArray",
+          "line": 716,
+          "signature": "bool StyledStreamWriter::isMultilineArray(const Value& value)"
+        },
+        {
+          "name": "StyledStreamWriter::pushValue",
+          "line": 743,
+          "signature": "void StyledStreamWriter::pushValue(const String& value)"
+        },
+        {
+          "name": "StyledStreamWriter::writeIndent",
+          "line": 750,
+          "signature": "void StyledStreamWriter::writeIndent()"
+        },
+        {
+          "name": "StyledStreamWriter::writeWithIndent",
+          "line": 758,
+          "signature": "void StyledStreamWriter::writeWithIndent(const String& value)"
+        },
+        {
+          "name": "StyledStreamWriter::indent",
+          "line": 765,
+          "signature": "void StyledStreamWriter::indent()"
+        },
+        {
+          "name": "StyledStreamWriter::unindent",
+          "line": 767,
+          "signature": "void StyledStreamWriter::unindent()"
+        },
+        {
+          "name": "StyledStreamWriter::writeCommentBeforeValue",
+          "line": 772,
+          "signature": "void StyledStreamWriter::writeCommentBeforeValue(const Value& root)"
+        },
+        {
+          "name": "StyledStreamWriter::writeCommentAfterValueOnSameLine",
+          "line": 790,
+          "signature": "void StyledStreamWriter::writeCommentAfterValueOnSameLine(const Value& root)"
+        },
+        {
+          "name": "StyledStreamWriter::hasCommentForValue",
+          "line": 801,
+          "signature": "bool StyledStreamWriter::hasCommentForValue(const Value& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::BuiltStyledStreamWriter",
+          "line": 858,
+          "signature": "BuiltStyledStreamWriter::BuiltStyledStreamWriter(\n    String indentation, CommentStyle::Enum cs, String colonSymbol,\n    String nullSymbol, String endingLineFeedSymbol, bool useSpecialFloats,\n    bool"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::write",
+          "line": 868,
+          "signature": "int BuiltStyledStreamWriter::write(Value const& root, OStream* sout)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeValue",
+          "line": 883,
+          "signature": "void BuiltStyledStreamWriter::writeValue(Value const& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeArrayValue",
+          "line": 946,
+          "signature": "void BuiltStyledStreamWriter::writeArrayValue(Value const& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::isMultilineArray",
+          "line": 996,
+          "signature": "bool BuiltStyledStreamWriter::isMultilineArray(Value const& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::pushValue",
+          "line": 1023,
+          "signature": "void BuiltStyledStreamWriter::pushValue(String const& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeIndent",
+          "line": 1030,
+          "signature": "void BuiltStyledStreamWriter::writeIndent()"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeWithIndent",
+          "line": 1042,
+          "signature": "void BuiltStyledStreamWriter::writeWithIndent(String const& value)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::indent",
+          "line": 1049,
+          "signature": "void BuiltStyledStreamWriter::indent()"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::unindent",
+          "line": 1051,
+          "signature": "void BuiltStyledStreamWriter::unindent()"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeCommentBeforeValue",
+          "line": 1056,
+          "signature": "void BuiltStyledStreamWriter::writeCommentBeforeValue(Value const& root)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::writeCommentAfterValueOnSameLine",
+          "line": 1076,
+          "signature": "void BuiltStyledStreamWriter::writeCommentAfterValueOnSameLine(\n    Value const& root)"
+        },
+        {
+          "name": "BuiltStyledStreamWriter::hasCommentForValue",
+          "line": 1090,
+          "signature": "bool BuiltStyledStreamWriter::hasCommentForValue(const Value& value)"
+        },
+        {
+          "name": "StreamWriter::StreamWriter",
+          "line": 1099,
+          "signature": "StreamWriter::StreamWriter() : sout_(nullptr)"
+        },
+        {
+          "name": "StreamWriter",
+          "line": 1100,
+          "signature": "StreamWriter::~StreamWriter() = default;"
+        },
+        {
+          "name": "Factory",
+          "line": 1101,
+          "signature": "StreamWriter::Factory::~Factory() = default;"
+        },
+        {
+          "name": "StreamWriterBuilder::StreamWriterBuilder",
+          "line": 1102,
+          "signature": "StreamWriterBuilder::StreamWriterBuilder()"
+        },
+        {
+          "name": "StreamWriterBuilder",
+          "line": 1103,
+          "signature": "StreamWriterBuilder::~StreamWriterBuilder() = default;"
+        },
+        {
+          "name": "StreamWriterBuilder::newStreamWriter",
+          "line": 1104,
+          "signature": "StreamWriter* StreamWriterBuilder::newStreamWriter() const"
+        },
+        {
+          "name": "StreamWriterBuilder::validate",
+          "line": 1147,
+          "signature": "bool StreamWriterBuilder::validate(Json::Value* invalid) const"
+        },
+        {
+          "name": "StreamWriterBuilder::setDefaults",
+          "line": 1174,
+          "signature": "void StreamWriterBuilder::setDefaults(Json::Value* settings)"
+        },
+        {
+          "name": "writeString",
+          "line": 1187,
+          "signature": "String writeString(StreamWriter::Factory const& factory, Value const& root)"
+        },
+        {
+          "name": "writer",
+          "line": 1194,
+          "signature": "OStream& operator<<(OStream& sout, Value const& root)"
+        }
+      ],
+      "include/json/allocator.h": [
+        {
+          "name": "pack",
+          "line": 13,
+          "signature": "#pragma pack(push)"
+        },
+        {
+          "name": "pack",
+          "line": 14,
+          "signature": "#pragma pack()"
+        },
+        {
+          "name": "allocate",
+          "line": 31,
+          "signature": "pointer allocate(size_type n) {"
+        },
+        {
+          "name": "deallocate",
+          "line": 41,
+          "signature": "void deallocate(pointer p, size_type n) {"
+        },
+        {
+          "name": "defined",
+          "line": 44,
+          "signature": "#if defined(HAVE_MEMSET_S)"
+        },
+        {
+          "name": "std::fill_n",
+          "line": 47,
+          "signature": "std::fill_n(reinterpret_cast<volatile unsigned char*>(p), n * sizeof(T),"
+        },
+        {
+          "name": "construct",
+          "line": 58,
+          "signature": "template <typename... Args> void construct(pointer p, Args&&... args) {"
+        },
+        {
+          "name": "max_size",
+          "line": 63,
+          "signature": "size_type max_size() const { return size_t(-1) / sizeof(T); }"
+        },
+        {
+          "name": "address",
+          "line": 65,
+          "signature": "pointer address(reference x) const { return std::addressof(x); }"
+        },
+        {
+          "name": "address",
+          "line": 67,
+          "signature": "const_pointer address(const_reference x) const { return std::addressof(x); }"
+        },
+        {
+          "name": "destroy",
+          "line": 72,
+          "signature": "void destroy(pointer p) {"
+        },
+        {
+          "name": "SecureAllocator",
+          "line": 78,
+          "signature": "SecureAllocator() {}"
+        },
+        {
+          "name": "SecureAllocator",
+          "line": 79,
+          "signature": "template <typename U> SecureAllocator(const SecureAllocator<U>&) {}"
+        },
+        {
+          "name": "pack",
+          "line": 97,
+          "signature": "#pragma pack(pop)"
+        }
+      ],
+      "include/json/assertions.h": [
+        {
+          "name": "defined",
+          "line": 12,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 14,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "JSON_ASSERT",
+          "line": 23,
+          "signature": "#define JSON_ASSERT(condition)                                                 \\"
+        },
+        {
+          "name": "if",
+          "line": 25,
+          "signature": "if (!(condition)) {                                                        \\"
+        },
+        {
+          "name": "Json::throwLogicError",
+          "line": 26,
+          "signature": "Json::throwLogicError(\"assert json failed\");                             \\"
+        },
+        {
+          "name": "while",
+          "line": 28,
+          "signature": "} while (0)"
+        },
+        {
+          "name": "JSON_FAIL_MESSAGE",
+          "line": 30,
+          "signature": "#define JSON_FAIL_MESSAGE(message)                                             \\"
+        },
+        {
+          "name": "Json::throwLogicError",
+          "line": 34,
+          "signature": "Json::throwLogicError(oss.str());                                          \\"
+        },
+        {
+          "name": "abort",
+          "line": 35,
+          "signature": "abort();                                                                   \\"
+        },
+        {
+          "name": "while",
+          "line": 36,
+          "signature": "} while (0)"
+        },
+        {
+          "name": "JSON_ASSERT",
+          "line": 40,
+          "signature": "#define JSON_ASSERT(condition) assert(condition)"
+        },
+        {
+          "name": "JSON_FAIL_MESSAGE",
+          "line": 44,
+          "signature": "#define JSON_FAIL_MESSAGE(message)                                             \\"
+        },
+        {
+          "name": "assert",
+          "line": 48,
+          "signature": "assert(false && oss.str().c_str());                                        \\"
+        },
+        {
+          "name": "abort",
+          "line": 49,
+          "signature": "abort();                                                                   \\"
+        },
+        {
+          "name": "JSON_ASSERT_MESSAGE",
+          "line": 54,
+          "signature": "#define JSON_ASSERT_MESSAGE(condition, message)                                \\"
+        },
+        {
+          "name": "if",
+          "line": 56,
+          "signature": "if (!(condition)) {                                                        \\"
+        },
+        {
+          "name": "JSON_FAIL_MESSAGE",
+          "line": 57,
+          "signature": "JSON_FAIL_MESSAGE(message);                                              \\"
+        },
+        {
+          "name": "while",
+          "line": 59,
+          "signature": "} while (0)"
+        }
+      ],
+      "include/json/config.h": [
+        {
+          "name": "defined",
+          "line": 34,
+          "signature": "#if defined(JSON_DLL_BUILD)"
+        },
+        {
+          "name": "defined",
+          "line": 35,
+          "signature": "#if defined(_MSC_VER) || defined(__MINGW32__)"
+        },
+        {
+          "name": "__declspec",
+          "line": 36,
+          "signature": "#define JSON_API __declspec(dllexport)"
+        },
+        {
+          "name": "defined",
+          "line": 38,
+          "signature": "#elif defined(__GNUC__) || defined(__clang__)"
+        },
+        {
+          "name": "__attribute__",
+          "line": 39,
+          "signature": "#define JSON_API __attribute__((visibility(\"default\")))"
+        },
+        {
+          "name": "defined",
+          "line": 40,
+          "signature": "#endif // if defined(_MSC_VER)"
+        },
+        {
+          "name": "defined",
+          "line": 42,
+          "signature": "#elif defined(JSON_DLL)"
+        },
+        {
+          "name": "defined",
+          "line": 43,
+          "signature": "#if defined(_MSC_VER) || defined(__MINGW32__)"
+        },
+        {
+          "name": "__declspec",
+          "line": 44,
+          "signature": "#define JSON_API __declspec(dllimport)"
+        },
+        {
+          "name": "defined",
+          "line": 46,
+          "signature": "#endif // if defined(_MSC_VER)"
+        },
+        {
+          "name": "defined",
+          "line": 49,
+          "signature": "#if !defined(JSON_API)"
+        },
+        {
+          "name": "defined",
+          "line": 53,
+          "signature": "#if defined(_MSC_VER) && _MSC_VER < 1800"
+        },
+        {
+          "name": "defined",
+          "line": 58,
+          "signature": "#if defined(_MSC_VER) && _MSC_VER < 1900"
+        },
+        {
+          "name": "msvc_pre1900_c99_snprintf",
+          "line": 61,
+          "signature": "extern JSON_API int msvc_pre1900_c99_snprintf(char* outBuf, size_t size,"
+        },
+        {
+          "name": "__has_extension",
+          "line": 78,
+          "signature": "#if __has_extension(attribute_deprecated_with_message)"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 79,
+          "signature": "#define JSONCPP_DEPRECATED(message) __attribute__((deprecated(message)))"
+        },
+        {
+          "name": "defined",
+          "line": 81,
+          "signature": "#elif defined(__GNUC__) // not clang (gcc comes later since clang emulates gcc)"
+        },
+        {
+          "name": "if",
+          "line": 82,
+          "signature": "#if (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 5))"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 83,
+          "signature": "#define JSONCPP_DEPRECATED(message) __attribute__((deprecated(message)))"
+        },
+        {
+          "name": "elif",
+          "line": 84,
+          "signature": "#elif (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 1))"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 85,
+          "signature": "#define JSONCPP_DEPRECATED(message) __attribute__((__deprecated__))"
+        },
+        {
+          "name": "defined",
+          "line": 87,
+          "signature": "#elif defined(_MSC_VER) // MSVC (after clang because clang on Windows emulates"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 89,
+          "signature": "#define JSONCPP_DEPRECATED(message) __declspec(deprecated(message))"
+        },
+        {
+          "name": "defined",
+          "line": 92,
+          "signature": "#if !defined(JSONCPP_DEPRECATED)"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 93,
+          "signature": "#define JSONCPP_DEPRECATED(message)"
+        },
+        {
+          "name": "defined",
+          "line": 94,
+          "signature": "#endif // if !defined(JSONCPP_DEPRECATED)"
+        },
+        {
+          "name": "defined",
+          "line": 96,
+          "signature": "#if defined(__clang__) || (defined(__GNUC__) && (__GNUC__ >= 6))"
+        },
+        {
+          "name": "defined",
+          "line": 100,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 105,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 111,
+          "signature": "#if defined(JSON_NO_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 115,
+          "signature": "#else                 // if defined(JSON_NO_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 117,
+          "signature": "#if defined(_MSC_VER) // Microsoft Visual Studio"
+        },
+        {
+          "name": "defined",
+          "line": 120,
+          "signature": "#else                 // if defined(_MSC_VER) // Other platforms, use long long"
+        },
+        {
+          "name": "defined",
+          "line": 123,
+          "signature": "#endif                // if defined(_MSC_VER)"
+        },
+        {
+          "name": "defined",
+          "line": 129,
+          "signature": "#endif // if defined(JSON_NO_INT64)"
+        }
+      ],
+      "include/json/forwards.h": [
+        {
+          "name": "defined",
+          "line": 9,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 11,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        }
+      ],
+      "include/json/json_features.h": [
+        {
+          "name": "defined",
+          "line": 9,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 11,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "pack",
+          "line": 13,
+          "signature": "#pragma pack(push)"
+        },
+        {
+          "name": "pack",
+          "line": 14,
+          "signature": "#pragma pack()"
+        },
+        {
+          "name": "pack",
+          "line": 60,
+          "signature": "#pragma pack(pop)"
+        }
+      ],
+      "include/json/reader.h": [
+        {
+          "name": "defined",
+          "line": 9,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 12,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 21,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "warning",
+          "line": 22,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 23,
+          "signature": "#pragma warning(disable : 4251)"
+        },
+        {
+          "name": "defined",
+          "line": 24,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "pack",
+          "line": 26,
+          "signature": "#pragma pack(push)"
+        },
+        {
+          "name": "pack",
+          "line": 27,
+          "signature": "#pragma pack()"
+        },
+        {
+          "name": "parse",
+          "line": 77,
+          "signature": "bool parse(const std::string& document, Value& root,"
+        },
+        {
+          "name": "parse",
+          "line": 99,
+          "signature": "bool parse(const char* beginDoc, const char* endDoc, Value& root,"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 114,
+          "signature": "JSONCPP_DEPRECATED(\"Use getFormattedErrorMessages() instead.\")"
+        },
+        {
+          "name": "decodeUnicodeCodePoint",
+          "line": 213,
+          "signature": "bool decodeUnicodeCodePoint(Token& token, Location& current, Location end,"
+        },
+        {
+          "name": "decodeUnicodeEscapeSequence",
+          "line": 215,
+          "signature": "bool decodeUnicodeEscapeSequence(Token& token, Location& current,"
+        },
+        {
+          "name": "addErrorAndRecover",
+          "line": 219,
+          "signature": "bool addErrorAndRecover(const String& message, Token& token,"
+        },
+        {
+          "name": "getLocationLineAndColumn",
+          "line": 224,
+          "signature": "void getLocationLineAndColumn(Location location, int& line,"
+        },
+        {
+          "name": "parse",
+          "line": 273,
+          "signature": "virtual bool parse(char const* beginDoc, char const* endDoc, Value* root,"
+        },
+        {
+          "name": "new",
+          "line": 284,
+          "signature": "/** \\brief Allocate a CharReader via operator new()."
+        },
+        {
+          "name": "parse",
+          "line": 294,
+          "signature": "virtual bool parse(char const* beginDoc, char const* endDoc, Value* root,"
+        },
+        {
+          "name": "CharReader",
+          "line": 299,
+          "signature": "explicit CharReader(std::unique_ptr<Impl> impl) : _impl(std::move(impl)) {}"
+        },
+        {
+          "name": "Features::strictMode",
+          "line": 385,
+          "signature": "/** Same as old Features::strictMode()."
+        },
+        {
+          "name": "parseFromStream",
+          "line": 403,
+          "signature": "bool JSON_API parseFromStream(CharReader::Factory const&, IStream&, Value* root,"
+        },
+        {
+          "name": "pack",
+          "line": 434,
+          "signature": "#pragma pack(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 436,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "warning",
+          "line": 437,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 438,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        }
+      ],
+      "include/json/value.h": [
+        {
+          "name": "defined",
+          "line": 9,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 11,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 16,
+          "signature": "#if !defined(JSONCPP_NORETURN)"
+        },
+        {
+          "name": "defined",
+          "line": 17,
+          "signature": "#if defined(_MSC_VER) && _MSC_VER == 1800"
+        },
+        {
+          "name": "__declspec",
+          "line": 18,
+          "signature": "#define JSONCPP_NORETURN __declspec(noreturn)"
+        },
+        {
+          "name": "defined",
+          "line": 27,
+          "signature": "#if !defined(JSONCPP_TEMPLATE_DELETE)"
+        },
+        {
+          "name": "defined",
+          "line": 28,
+          "signature": "#if defined(__clang__) && defined(__apple_build_version__)"
+        },
+        {
+          "name": "defined",
+          "line": 32,
+          "signature": "#elif defined(__clang__)"
+        },
+        {
+          "name": "defined",
+          "line": 37,
+          "signature": "#if !defined(JSONCPP_TEMPLATE_DELETE)"
+        },
+        {
+          "name": "defined",
+          "line": 64,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "warning",
+          "line": 65,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 66,
+          "signature": "#pragma warning(disable : 4251 4275)"
+        },
+        {
+          "name": "defined",
+          "line": 67,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "pack",
+          "line": 69,
+          "signature": "#pragma pack(push)"
+        },
+        {
+          "name": "pack",
+          "line": 70,
+          "signature": "#pragma pack()"
+        },
+        {
+          "name": "JSON",
+          "line": 72,
+          "signature": "/** \\brief JSON (JavaScript Object Notation)."
+        },
+        {
+          "name": "value",
+          "line": 128,
+          "signature": "arrayValue,    ///< array value (ordered list)"
+        },
+        {
+          "name": "value",
+          "line": 129,
+          "signature": "objectValue    ///< object value (collection of name/value pairs)."
+        },
+        {
+          "name": "value",
+          "line": 135,
+          "signature": "commentAfter, ///< a comment on the line after a value (only make sense for"
+        },
+        {
+          "name": "StaticString",
+          "line": 163,
+          "signature": "explicit StaticString(const char* czstring) : c_str_(czstring) {}"
+        },
+        {
+          "name": "c_str",
+          "line": 167,
+          "signature": "const char* c_str() const { return c_str_; }"
+        },
+        {
+          "name": "defined",
+          "line": 217,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 220,
+          "signature": "#endif // defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 252,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 259,
+          "signature": "#endif // defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 333,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 336,
+          "signature": "#endif // if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "Value",
+          "line": 338,
+          "signature": "Value(const char* value); ///< Copy til first 0. (NULL causes to seg-fault.)"
+        },
+        {
+          "name": "Value",
+          "line": 339,
+          "signature": "Value(const char* begin, const char* end); ///< Copy all, incl zeroes."
+        },
+        {
+          "name": "Value",
+          "line": 360,
+          "signature": "inline Value(std::string_view value)"
+        },
+        {
+          "name": "Value",
+          "line": 361,
+          "signature": ": Value(value.data(), value.data() + value.length()) {}"
+        },
+        {
+          "name": "asCString",
+          "line": 395,
+          "signature": "const char* asCString() const; ///< Embedded zeroes could cause you trouble!"
+        },
+        {
+          "name": "getCStringLength",
+          "line": 397,
+          "signature": "unsigned getCStringLength() const; // Allows you to understand the length of"
+        },
+        {
+          "name": "asString",
+          "line": 400,
+          "signature": "String asString() const; ///< Embedded zeroes are possible."
+        },
+        {
+          "name": "getString",
+          "line": 409,
+          "signature": "inline bool getString(std::string_view* str) const {"
+        },
+        {
+          "name": "if",
+          "line": 412,
+          "signature": "if (!getString(&begin, &end))"
+        },
+        {
+          "name": "defined",
+          "line": 420,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 423,
+          "signature": "#endif // if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "if",
+          "line": 515,
+          "signature": "if (!found)"
+        },
+        {
+          "name": "get",
+          "line": 550,
+          "signature": "inline Value get(std::string_view key, const Value& defaultValue) const {"
+        },
+        {
+          "name": "get",
+          "line": 565,
+          "signature": "Value get(const char* begin, const char* end,"
+        },
+        {
+          "name": "bool",
+          "line": 576,
+          "signature": "template <typename T, bool (T::*TMemFn)() const>"
+        },
+        {
+          "name": "findValue",
+          "line": 577,
+          "signature": "Value const* findValue(const String& key) const {"
+        },
+        {
+          "name": "if",
+          "line": 579,
+          "signature": "if (!found || !(found->*TMemFn)())"
+        },
+        {
+          "name": "removeMember",
+          "line": 607,
+          "signature": "inline void removeMember(std::string_view key) {"
+        },
+        {
+          "name": "removeMember",
+          "line": 623,
+          "signature": "inline bool removeMember(std::string_view key, Value* removed) {"
+        },
+        {
+          "name": "isMember",
+          "line": 644,
+          "signature": "inline bool isMember(std::string_view key) const {"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 665,
+          "signature": "JSONCPP_DEPRECATED(\"Use setComment(String const&) instead.\")"
+        },
+        {
+          "name": "setComment",
+          "line": 666,
+          "signature": "void setComment(const char* comment, CommentPlacement placement) {"
+        },
+        {
+          "name": "setComment",
+          "line": 670,
+          "signature": "void setComment(const char* comment, size_t len, CommentPlacement placement) {"
+        },
+        {
+          "name": "setType",
+          "line": 720,
+          "signature": "void setType(ValueType v) {"
+        },
+        {
+          "name": "isAllocated",
+          "line": 723,
+          "signature": "bool isAllocated() const { return bits_.allocated_; }"
+        },
+        {
+          "name": "setIsAllocated",
+          "line": 724,
+          "signature": "void setIsAllocated(bool v) { bits_.allocated_ = v; }"
+        },
+        {
+          "name": "asBool",
+          "line": 782,
+          "signature": "template <> inline bool Value::as<bool>() const { return asBool(); }"
+        },
+        {
+          "name": "isBool",
+          "line": 783,
+          "signature": "template <> inline bool Value::is<bool>() const { return isBool(); }"
+        },
+        {
+          "name": "asInt",
+          "line": 785,
+          "signature": "template <> inline Int Value::as<Int>() const { return asInt(); }"
+        },
+        {
+          "name": "isInt",
+          "line": 786,
+          "signature": "template <> inline bool Value::is<Int>() const { return isInt(); }"
+        },
+        {
+          "name": "asUInt",
+          "line": 788,
+          "signature": "template <> inline UInt Value::as<UInt>() const { return asUInt(); }"
+        },
+        {
+          "name": "isUInt",
+          "line": 789,
+          "signature": "template <> inline bool Value::is<UInt>() const { return isUInt(); }"
+        },
+        {
+          "name": "defined",
+          "line": 791,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "asInt64",
+          "line": 792,
+          "signature": "template <> inline Int64 Value::as<Int64>() const { return asInt64(); }"
+        },
+        {
+          "name": "isInt64",
+          "line": 793,
+          "signature": "template <> inline bool Value::is<Int64>() const { return isInt64(); }"
+        },
+        {
+          "name": "asUInt64",
+          "line": 795,
+          "signature": "template <> inline UInt64 Value::as<UInt64>() const { return asUInt64(); }"
+        },
+        {
+          "name": "isUInt64",
+          "line": 796,
+          "signature": "template <> inline bool Value::is<UInt64>() const { return isUInt64(); }"
+        },
+        {
+          "name": "asDouble",
+          "line": 799,
+          "signature": "template <> inline double Value::as<double>() const { return asDouble(); }"
+        },
+        {
+          "name": "isDouble",
+          "line": 800,
+          "signature": "template <> inline bool Value::is<double>() const { return isDouble(); }"
+        },
+        {
+          "name": "asString",
+          "line": 802,
+          "signature": "template <> inline String Value::as<String>() const { return asString(); }"
+        },
+        {
+          "name": "isString",
+          "line": 803,
+          "signature": "template <> inline bool Value::is<String>() const { return isString(); }"
+        },
+        {
+          "name": "asFloat",
+          "line": 807,
+          "signature": "template <> inline float Value::as<float>() const { return asFloat(); }"
+        },
+        {
+          "name": "Path",
+          "line": 844,
+          "signature": "Path(const String& path, const PathArgument& a1 = PathArgument(),"
+        },
+        {
+          "name": "PathArgument",
+          "line": 845,
+          "signature": "const PathArgument& a2 = PathArgument(),"
+        },
+        {
+          "name": "PathArgument",
+          "line": 846,
+          "signature": "const PathArgument& a3 = PathArgument(),"
+        },
+        {
+          "name": "PathArgument",
+          "line": 847,
+          "signature": "const PathArgument& a4 = PathArgument(),"
+        },
+        {
+          "name": "addPathInArg",
+          "line": 861,
+          "signature": "void addPathInArg(const String& path, const InArgs& in,"
+        },
+        {
+          "name": "isEqual",
+          "line": 878,
+          "signature": "bool operator==(const SelfType& other) const { return isEqual(other); }"
+        },
+        {
+          "name": "isEqual",
+          "line": 880,
+          "signature": "bool operator!=(const SelfType& other) const { return !isEqual(other); }"
+        },
+        {
+          "name": "JSONCPP_DEPRECATED",
+          "line": 903,
+          "signature": "JSONCPP_DEPRECATED(\"Use `key = name();` instead.\")"
+        },
+        {
+          "name": "deref",
+          "line": 989,
+          "signature": "reference operator*() const { return deref(); }"
+        },
+        {
+          "name": "deref",
+          "line": 991,
+          "signature": "pointer operator->() const { return &deref(); }"
+        },
+        {
+          "name": "deref",
+          "line": 1046,
+          "signature": "reference operator*() const { return const_cast<reference>(deref()); }"
+        },
+        {
+          "name": "deref",
+          "line": 1047,
+          "signature": "pointer operator->() const { return const_cast<pointer>(&deref()); }"
+        },
+        {
+          "name": "ValueMembersIterator",
+          "line": 1076,
+          "signature": "explicit ValueMembersIterator(ValueIterator const& iter) : it_(iter) {}"
+        },
+        {
+          "name": "name",
+          "line": 1093,
+          "signature": "MemberProxy operator*() const { return MemberProxy{it_.name(), *it_}; }"
+        },
+        {
+          "name": "ValueConstMembersIterator",
+          "line": 1110,
+          "signature": "explicit ValueConstMembersIterator(ValueConstIterator const& iter)"
+        },
+        {
+          "name": "it_",
+          "line": 1111,
+          "signature": ": it_(iter) {}"
+        },
+        {
+          "name": "ValueMembersView",
+          "line": 1140,
+          "signature": "ValueMembersView(ValueIterator begin, ValueIterator end)"
+        },
+        {
+          "name": "begin_",
+          "line": 1141,
+          "signature": ": begin_(begin), end_(end) {}"
+        },
+        {
+          "name": "begin",
+          "line": 1142,
+          "signature": "ValueMembersIterator begin() const { return ValueMembersIterator(begin_); }"
+        },
+        {
+          "name": "end",
+          "line": 1143,
+          "signature": "ValueMembersIterator end() const { return ValueMembersIterator(end_); }"
+        },
+        {
+          "name": "ValueConstMembersView",
+          "line": 1154,
+          "signature": "ValueConstMembersView(ValueConstIterator begin, ValueConstIterator end)"
+        },
+        {
+          "name": "begin_",
+          "line": 1155,
+          "signature": ": begin_(begin), end_(end) {}"
+        },
+        {
+          "name": "begin",
+          "line": 1156,
+          "signature": "ValueConstMembersIterator begin() const {"
+        },
+        {
+          "name": "end",
+          "line": 1159,
+          "signature": "ValueConstMembersIterator end() const {"
+        },
+        {
+          "name": "Value::members",
+          "line": 1168,
+          "signature": "inline ValueMembersView Value::members() {"
+        },
+        {
+          "name": "Value::members",
+          "line": 1171,
+          "signature": "inline ValueConstMembersView Value::members() const {"
+        },
+        {
+          "name": "swap",
+          "line": 1175,
+          "signature": "inline void swap(Value& a, Value& b) { a.swap(b); }"
+        },
+        {
+          "name": "Value::front",
+          "line": 1177,
+          "signature": "inline const Value& Value::front() const { return *begin(); }"
+        },
+        {
+          "name": "Value::front",
+          "line": 1179,
+          "signature": "inline Value& Value::front() { return *begin(); }"
+        },
+        {
+          "name": "Value::back",
+          "line": 1181,
+          "signature": "inline const Value& Value::back() const { return *(--end()); }"
+        },
+        {
+          "name": "Value::back",
+          "line": 1183,
+          "signature": "inline Value& Value::back() { return *(--end()); }"
+        },
+        {
+          "name": "pack",
+          "line": 1187,
+          "signature": "#pragma pack(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 1189,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "warning",
+          "line": 1190,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 1191,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        }
+      ],
+      "include/json/version.h": [
+        {
+          "name": "defined",
+          "line": 21,
+          "signature": "#if !defined(JSONCPP_USE_SECURE_MEMORY)"
+        }
+      ],
+      "include/json/writer.h": [
+        {
+          "name": "defined",
+          "line": 9,
+          "signature": "#if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 11,
+          "signature": "#endif // if !defined(JSON_IS_AMALGAMATION)"
+        },
+        {
+          "name": "defined",
+          "line": 18,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING) && defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 19,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 20,
+          "signature": "#pragma warning(disable : 4251)"
+        },
+        {
+          "name": "defined",
+          "line": 21,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "pack",
+          "line": 23,
+          "signature": "#pragma pack(push)"
+        },
+        {
+          "name": "pack",
+          "line": 24,
+          "signature": "#pragma pack()"
+        },
+        {
+          "name": "new",
+          "line": 62,
+          "signature": "/** \\brief Allocate a CharReader via operator new()."
+        },
+        {
+          "name": "writeString",
+          "line": 72,
+          "signature": "String JSON_API writeString(StreamWriter::Factory const& factory,"
+        },
+        {
+          "name": "defined",
+          "line": 167,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 168,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 169,
+          "signature": "#pragma warning(disable : 4996) // Deriving from deprecated class"
+        },
+        {
+          "name": "defined",
+          "line": 198,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 199,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 226,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 227,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 228,
+          "signature": "#pragma warning(disable : 4996) // Deriving from deprecated class"
+        },
+        {
+          "name": "defined",
+          "line": 265,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 266,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 294,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 295,
+          "signature": "#pragma warning(push)"
+        },
+        {
+          "name": "warning",
+          "line": 296,
+          "signature": "#pragma warning(disable : 4996) // Deriving from deprecated class"
+        },
+        {
+          "name": "defined",
+          "line": 339,
+          "signature": "#if defined(_MSC_VER)"
+        },
+        {
+          "name": "warning",
+          "line": 340,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 343,
+          "signature": "#if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "defined",
+          "line": 346,
+          "signature": "#endif // if defined(JSON_HAS_INT64)"
+        },
+        {
+          "name": "valueToString",
+          "line": 349,
+          "signature": "String JSON_API valueToString("
+        },
+        {
+          "name": "pack",
+          "line": 362,
+          "signature": "#pragma pack(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 364,
+          "signature": "#if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        },
+        {
+          "name": "warning",
+          "line": 365,
+          "signature": "#pragma warning(pop)"
+        },
+        {
+          "name": "defined",
+          "line": 366,
+          "signature": "#endif // if defined(JSONCPP_DISABLE_DLL_INTERFACE_WARNING)"
+        }
+      ]
+    },
+    "total_functions": 579
+  },
+  "issues": {
+    "available": true,
+    "issues": [
+      {
+        "number": 1737,
+        "title": "ftell()'s return is never checked for its documented -1 failure case",
+        "state": "open",
+        "created_at": "2026-11-16T06:19:41Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1737",
+        "keywords": [
+          "overflow"
+        ]
+      },
+      {
+        "number": 1732,
+        "title": "Doc comments still say \\deprecated after 1.9.5 dropped JSONCPP_DEPRECATED (-Wdocumentation-deprecated-sync)",
+        "state": "open",
+        "created_at": "2026-11-03T13:54:24Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1732",
+        "keywords": [
+          "reader",
+          "writer"
+        ]
+      },
+      {
+        "number": 1727,
+        "title": "6u",
+        "state": "open",
+        "created_at": "2026-10-22T14:56:35Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1727",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1726,
+        "title": "https://github.com/open-source-parsers/jsoncpp/issues/1712",
+        "state": "open",
+        "created_at": "2026-10-21T22:29:44Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1726",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1712,
+        "title": "GitHub Action should be added to ensure JSONCPP_USE_SECURE_MEMORY build does not regress",
+        "state": "open",
+        "created_at": "2026-08-20T22:22:04Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1712",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1705,
+        "title": "Missing prototype for function added in 1.9.8",
+        "state": "closed",
+        "created_at": "2026-07-07T15:15:07Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1705",
+        "keywords": [
+          "reader"
+        ]
+      },
+      {
+        "number": 1704,
+        "title": "Denial-of-service from uncontrolled deep recursion in OurReader::readValue (exceed stackLimit)",
+        "state": "open",
+        "created_at": "2026-07-04T11:17:19Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1704",
+        "keywords": [
+          "reader"
+        ]
+      },
+      {
+        "number": 1692,
+        "title": "Mark 1.9.8-rc1 as a pre-release?",
+        "state": "closed",
+        "created_at": "2026-06-15T01:22:47Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1692",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1687,
+        "title": "Warning C4866: `compiler may not enforce left-to-right evaluation order for call to 'Json::Value::operator[]`",
+        "state": "closed",
+        "created_at": "2026-05-18T08:25:11Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1687",
+        "keywords": [
+          "writer"
+        ]
+      },
+      {
+        "number": 1636,
+        "title": "jsoncpp - 0.10.7 - bool Reader::parse - bug for old C++",
+        "state": "closed",
+        "created_at": "2026-02-19T16:19:11Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1636",
+        "keywords": [
+          "reader"
+        ]
+      },
+      {
+        "number": 1529,
+        "title": "macOS 14.3.1 23D60 arm64  error",
+        "state": "closed",
+        "created_at": "2024-02-21T11:27:31Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1529",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1515,
+        "title": "Tests write to source tree when invoked via CMake",
+        "state": "open",
+        "created_at": "2023-09-28T22:31:52Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1515",
+        "keywords": [
+          "utf-8",
+          "unicode",
+          "reader",
+          "writer"
+        ]
+      },
+      {
+        "number": 1500,
+        "title": "Trailing comma before comment in array crashes",
+        "state": "closed",
+        "created_at": "2023-07-10T11:30:49Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1500",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1493,
+        "title": "Support cmake config with meson build",
+        "state": "open",
+        "created_at": "2023-06-10T20:24:52Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1493",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1489,
+        "title": "find_package(jsoncpp REQUIRED)  failed ",
+        "state": "open",
+        "created_at": "2023-05-14T03:52:24Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1489",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1471,
+        "title": "json_reader.cpp:1212] (error) Array 'pattern[3]' accessed at index 6, which is out of bounds. [arrayIndexOutOfBounds] ",
+        "state": "closed",
+        "created_at": "2023-02-28T16:53:27Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1471",
+        "keywords": [
+          "reader"
+        ]
+      },
+      {
+        "number": 1466,
+        "title": "CMake FetchContent build error",
+        "state": "open",
+        "created_at": "2023-02-09T04:02:39Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1466",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1465,
+        "title": "Linking debug .dll (via vcpkg) to debug build of windows app causes string corruption issues",
+        "state": "open",
+        "created_at": "2023-02-08T03:01:38Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1465",
+        "keywords": [
+          "duplicate",
+          "writer",
+          "overflow"
+        ]
+      },
+      {
+        "number": 1451,
+        "title": "Avoid setting global CMake directories",
+        "state": "open",
+        "created_at": "2022-12-04T16:56:03Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1451",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1446,
+        "title": "TESTING: legacy_test_real13.json parsing failed.",
+        "state": "open",
+        "created_at": "2022-11-17T14:18:39Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1446",
+        "keywords": [
+          "unicode",
+          "reader",
+          "writer"
+        ]
+      },
+      {
+        "number": 1427,
+        "title": "Roundtrip with subnormal float fails to parse",
+        "state": "closed",
+        "created_at": "2022-08-16T10:44:19Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1427",
+        "keywords": [
+          "round",
+          "reader",
+          "writer",
+          "parser",
+          "overflow"
+        ]
+      },
+      {
+        "number": 1411,
+        "title": "SHARED jsoncpp ERRER",
+        "state": "open",
+        "created_at": "2022-06-13T09:13:55Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1411",
+        "keywords": [
+          "reader",
+          "parser"
+        ]
+      },
+      {
+        "number": 1399,
+        "title": "JSONCPP_USING_SECURE_MEMORY uses memset_s which isn't portable",
+        "state": "closed",
+        "created_at": "2022-03-31T18:05:31Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1399",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1392,
+        "title": "JsonCpp failed to run \"jsoncpp_readerwriter\" and \"jsoncpp_readerwriter_json_checker\" tests on release and debug configuration with MSVC on windows x86 and x64",
+        "state": "open",
+        "created_at": "2022-03-02T09:16:40Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1392",
+        "keywords": [
+          "round",
+          "reader",
+          "writer",
+          "parser"
+        ]
+      },
+      {
+        "number": 1391,
+        "title": "GSHandlerCheck Error",
+        "state": "open",
+        "created_at": "2022-02-16T02:17:04Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1391",
+        "keywords": [
+          "writer"
+        ]
+      },
+      {
+        "number": 1359,
+        "title": "Stackoverflow when parsing a very complex string (1000+ nesting depth) to json ",
+        "state": "closed",
+        "created_at": "2021-12-03T15:28:28Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1359",
+        "keywords": [
+          "reader",
+          "overflow"
+        ]
+      },
+      {
+        "number": 1341,
+        "title": "OurReader::DecodeNumber leads to bad value type",
+        "state": "open",
+        "created_at": "2021-10-15T10:03:32Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1341",
+        "keywords": [
+          "reader"
+        ]
+      },
+      {
+        "number": 1290,
+        "title": "meson and cmake install different sets of files",
+        "state": "open",
+        "created_at": "2021-05-06T08:06:00Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1290",
+        "keywords": [
+          "reader",
+          "writer"
+        ]
+      },
+      {
+        "number": 1158,
+        "title": "cannot compile 0.10.7 with uClibc++",
+        "state": "closed",
+        "created_at": "2020-04-15T03:07:04Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1158",
+        "keywords": [
+          "parser"
+        ]
+      },
+      {
+        "number": 1136,
+        "title": "Different test result with meson and cmake/ninja build?",
+        "state": "open",
+        "created_at": "2020-02-04T17:26:16Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1136",
+        "keywords": [
+          "reader",
+          "writer"
+        ]
+      },
+      {
+        "number": 1069,
+        "title": "CMake: Specify a DEBUG_LIBNAME_SUFFIX by default?",
+        "state": "open",
+        "created_at": "2019-10-24T16:47:03Z",
+        "url": "https://github.com/open-source-parsers/jsoncpp/issues/1069",
+        "keywords": [
+          "round"
+        ]
+      }
+    ]
+  },
+  "catalogue": [
+    {
+      "task_id": "task-001",
+      "feature": "CharReaderBuilder.validateUTF8",
+      "difficulty": "easy",
+      "category": "cpp-json-reader",
+      "absence_probe": [
+        "src/lib_json/json_reader.cpp: 'validateUTF8'",
+        "include/json/reader.h: 'validateUTF8'"
+      ]
+    },
+    {
+      "task_id": "task-002",
+      "feature": "Value.findPointer",
+      "difficulty": "medium",
+      "category": "cpp-json-dom",
+      "absence_probe": [
+        "include/json/value.h: 'findPointer'",
+        "src/lib_json/json_value.cpp: 'findPointer'"
+      ]
+    },
+    {
+      "task_id": "task-003",
+      "feature": "StreamWriterBuilder.precisionMode",
+      "difficulty": "hard",
+      "category": "cpp-json-writer",
+      "absence_probe": [
+        "src/lib_json/json_writer.cpp: 'precisionMode'",
+        "include/json/writer.h: 'precisionMode'"
+      ]
+    }
+  ]
+}
