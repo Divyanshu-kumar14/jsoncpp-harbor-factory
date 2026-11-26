@@ -80,6 +80,11 @@ def build_zip(task_dirs: list[Path], output: Path) -> list[str]:
             arcname = f"gate/{extra.name}"
             archive.write(extra, arcname)
             included.append(arcname)
+        for extra in sorted((config.ROOT / "docs").glob("*")):
+            if extra.is_file():
+                arcname = f"docs/{extra.name}"
+                archive.write(extra, arcname)
+                included.append(arcname)
         for task_dir in task_dirs:
             for path in sorted(task_dir.rglob("*")):
                 if not path.is_file():

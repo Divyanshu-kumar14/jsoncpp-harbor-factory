@@ -4,6 +4,17 @@ An automated pipeline that mines [open-source-parsers/jsoncpp](https://github.co
 
 Built for the Hack2Skill × Innodata AI Hackathon, Prototype Submissions module. Harbor 0.25.0 is the load-bearing execution and grading engine: every task image, sandbox, verifier and reward flows through it.
 
+![One command: mine 579 functions, generate 5 tasks, pass 10/10 Harbor gate trials](docs/terminal.png)
+
+```mermaid
+flowchart LR
+  baseline["Pinned jsoncpp<br/>93acc7b"] --> miner["miner<br/>ast-grep + issues"]
+  miner --> generator["generator<br/>novelty gate + preflight"]
+  generator --> lint["harbor lint"]
+  lint --> validator["validator<br/>oracle 1 / no-op 0"]
+  validator --> packager["packager<br/>zip + evidence"]
+```
+
 ---
 
 ## Result at a glance

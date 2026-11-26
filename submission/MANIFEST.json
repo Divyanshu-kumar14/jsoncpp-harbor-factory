@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-11-26T23:31:03.058815+00:00",
+  "created_at": "2026-11-26T23:32:48.084637+00:00",
   "harbor_version": "0.25.0",
   "baseline_commit": "93acc7b155048f1a66c43235cc205519f1e7a6ea",
   "tasks": [
@@ -15,5 +15,5 @@
     "provided": null
   },
   "zip": "/home/rtx/github/jsoncpp-harbor-factory/submission/jsoncpp-harbor-tasks.zip",
-  "zip_entries": 74
+  "zip_entries": 75
 }
