@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T23:01:01.769161+00:00",
+  "generated_at": "2026-11-26T23:30:02.932792+00:00",
   "baseline_commit": "93acc7b155048f1a66c43235cc205519f1e7a6ea",
   "baseline_archive_sha256": "1e29b66c58b56ca8d936fba105e0e44d1224db6d2e898a86b51fde5d0243b698",
   "harbor_schema_version": "1.4",
@@ -49,6 +49,38 @@
         "library_build": "passed",
         "hidden_tests": {
           "test_precision_mode.cpp": "passed"
+        }
+      }
+    },
+    {
+      "task_id": "task-004",
+      "directory": "task-004-merge-patch",
+      "task_name": "innodata/jsoncpp-merge-patch",
+      "difficulty": "medium",
+      "feature": "Value.mergePatch",
+      "preflight": {
+        "task_id": "task-004",
+        "novelty_gate": "passed",
+        "patch_applied": true,
+        "library_build": "passed",
+        "hidden_tests": {
+          "test_merge_patch.cpp": "passed"
+        }
+      }
+    },
+    {
+      "task_id": "task-005",
+      "directory": "task-005-strict-numbers",
+      "task_name": "innodata/jsoncpp-strict-numbers",
+      "difficulty": "medium",
+      "feature": "CharReaderBuilder.strictNumbers",
+      "preflight": {
+        "task_id": "task-005",
+        "novelty_gate": "passed",
+        "patch_applied": true,
+        "library_build": "passed",
+        "hidden_tests": {
+          "test_strict_numbers.cpp": "passed"
         }
       }
     }

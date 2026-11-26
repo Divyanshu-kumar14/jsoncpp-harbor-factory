@@ -1,0 +1,36 @@
+# Baseline gate evidence (before any patch)
+# generated 2026-11-26T23:27:40Z
+
+## task-001 hidden test against baseline
+FAIL: expected reject: truncated 2-byte
+FAIL: expected reject: truncated 3-byte
+FAIL: expected reject: truncated 4-byte
+FAIL: expected reject: invalid UTF-8 in key
+17 check(s) failed
+exit=0
+
+## task-002 hidden test compiles against baseline?
+/tmp/t2_test.cpp: In function ‘int main()’:
+/tmp/t2_test.cpp:47:14: error: ‘class Json::Value’ has no member named ‘findPointer’
+   47 |   check(root.findPointer("") == &root, "empty pointer resolves to root");
+      |              ^~~~~~~~~~~
+
+## task-003 hidden test against baseline
+FAIL: mode=roundTrip want=3.141592653589793 got=3.1415926535897931
+FAIL: mode=roundTrip want=0.3333333333333333 got=0.333
+FAIL: validate accepts precisionMode
+FAIL: invalid precisionMode throws Json::RuntimeError
+10 check(s) failed
+
+## task-004 hidden test compiles against baseline?
+/tmp/t4_test.cpp: In function ‘void {anonymous}::expect(const std::string&, const std::string&, const std::string&, const std::string&)’:
+/tmp/t4_test.cpp:40:12: error: ‘class Json::Value’ has no member named ‘mergePatch’
+   40 |   document.mergePatch(patchValue);
+      |            ^~~~~~~~~~
+
+## task-005 hidden test against baseline
+FAIL: reject leading zero in array
+FAIL: reject trailing dot nested
+FAIL: strictMode enables strictNumbers
+FAIL: validate accepts strictNumbers
+14 check(s) failed

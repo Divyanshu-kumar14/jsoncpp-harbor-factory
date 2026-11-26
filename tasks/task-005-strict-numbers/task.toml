@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = "innodata/jsoncpp-strict-numbers"
+version = "1.0.0"
+description = "Add CharReaderBuilder strictNumbers to reject leading zeros, a leading plus, trailing decimal points and empty exponents."
+authors = [{ name = "Innodata AI Hackathon Team" }]
+keywords = ["jsoncpp", "reader", "rfc8259", "numbers", "validation"]
+
+[metadata]
+author_name = "Innodata AI Hackathon Team"
+difficulty = "medium"
+category = "cpp-json-reader"
+tags = ["jsoncpp", "reader", "rfc8259", "numbers", "validation"]
+expert_time_estimate_min = 25.0
+junior_time_estimate_min = 50.0
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "CharReaderBuilder.strictNumbers"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900
+os = "linux"
+
+[environment.env]
+
+[solution.env]

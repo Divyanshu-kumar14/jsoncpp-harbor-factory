@@ -2,17 +2,21 @@
 
 An automated pipeline that mines [open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) at a pinned baseline and emits independent, containerized [Harbor](https://docs.harborframework.com/) task packages, each validated with a two-sided gate: **reward 1 with the reference solution, reward 0 without it**.
 
-Built for the Hack2Skill × Innodata AI Hackathon, Prototype Submissions module.
+Built for the Hack2Skill × Innodata AI Hackathon, Prototype Submissions module. Harbor 0.25.0 is the load-bearing execution and grading engine: every task image, sandbox, verifier and reward flows through it.
 
 ---
 
 ## Result at a glance
+
+Integrity audit: [`gate/submission-integrity.md`](gate/submission-integrity.md) — 0 unverified numeric claims, 0 blocking items.
 
 | Task | Difficulty | Feature | Oracle | No-op control | `harbor lint` |
 | --- | --- | --- | ---: | ---: | --- |
 | `task-001-strict-utf8` | easy | `CharReaderBuilder["validateUTF8"]` | **1** | **0** | clean |
 | `task-002-json-pointer` | medium | `Value::findPointer` (RFC 6901) | **1** | **0** | clean |
 | `task-003-roundtrip-precision` | hard | `StreamWriterBuilder["precisionMode"]` | **1** | **0** | clean |
+| `task-004-merge-patch` | medium | `Value::mergePatch` (RFC 7386) | **1** | **0** | clean |
+| `task-005-strict-numbers` | medium | `CharReaderBuilder["strictNumbers"]` | **1** | **0** | clean |
 
 Raw evidence, not just summaries:
 
@@ -26,7 +30,7 @@ Raw evidence, not just summaries:
 
 ---
 
-## Why these three tasks (important)
+## Why the task set changed (important)
 
 The original brief specified control-character rejection, duplicate-key rejection, and 17-digit precision. **All three are already implemented at the pinned baseline**, so a patch would be a no-op and the no-solution gate would return 1. Verified at runtime:
 
@@ -43,6 +47,8 @@ With the baseline fixed, the factory instead implements capabilities that are ge
 | 001 | No UTF-8 validation; `C3 28` is accepted | 17 hidden checks fail before the patch |
 | 002 | No JSON Pointer API | hidden test does not compile before the patch |
 | 003 | No shortest round-trip mode; `0.1` → `0.10000000000000001` | 10 hidden checks fail before the patch |
+| 004 | No RFC 7386 merge-patch primitive | hidden test does not compile before the patch |
+| 005 | RFC-invalid `01`, `1.`, `+1`, `1.e2` parse successfully | 14 hidden checks fail before the patch |
 
 The generator enforces this permanently with a **novelty gate**: every task declares markers that must be absent from the baseline. A task whose feature already exists is refused, not packaged.
 
@@ -65,7 +71,7 @@ The archive is vendored so task images build offline and deterministically. `BAS
 
 ## Quick start
 
-Requirements: Docker, `uv`, Python 3.11+, `git`, `gh` (optional, for issue mining).
+Requirements: Docker, `uv`, a current Python 3, `git`, `gh` (optional, for issue mining).
 
 ```bash
 git clone https://github.com/Divyanshu-kumar14/jsoncpp-harbor-factory
@@ -73,19 +79,19 @@ cd jsoncpp-harbor-factory
 
 # Installs harbor==0.25.0 if needed, then mines, generates, lints,
 # validates (1/0) and packages.
-./generate.sh --repo jsoncpp --n 3
+./generate.sh --repo jsoncpp --n 5
 ```
 
 Useful variants:
 
 ```bash
-./generate.sh --n 3 --skip-validate          # fast authoring loop
-./generate.sh --n 3 --skip-preflight         # skip local build/test preflight
+./generate.sh --n 5 --skip-validate          # fast authoring loop
+./generate.sh --n 5 --skip-preflight         # skip local build/test preflight
 ./generate.sh --refresh-baseline             # re-clone upstream at the pinned commit
-./generate.sh --n 3 --template /path/template.zip   # compare against the dashboard template
+./generate.sh --n 5 --template /path/template.zip   # compare against the dashboard template
 ```
 
-`--n` is capped by the verified catalogue (currently 3). Requesting 5 prints a notice and generates the 3 verified tasks rather than padding with unverified ones.
+`--n` is capped by the verified catalogue (currently 5). A larger value prints a notice and generates the verified tasks rather than padding with unverified ones.
 
 ---
 
@@ -111,7 +117,9 @@ Useful variants:
 ├── tasks/
 │   ├── task-001-strict-utf8/
 │   ├── task-002-json-pointer/
-│   └── task-003-roundtrip-precision/
+│   ├── task-003-roundtrip-precision/
+│   ├── task-004-merge-patch/
+│   └── task-005-strict-numbers/
 ├── evidence/                    # mining, lint, validation, raw rewards
 └── validation.log
 ```
@@ -188,9 +196,9 @@ The validator automates exactly this and records both rewards.
 
 ---
 
-## Notes and open items
+## Provenance and constraints
 
-- **Dashboard template**: the supplied 11-slide `Innodata _ IDEA SUBMISSION.pptx` is filled in place by `factory/deck.py` and bundled into the submission zip. The task packages themselves use the canonical Harbor layout.
-- **Google Doc URL / exact doc baseline hash** were not available; the baseline was confirmed interactively as `93acc7b`. If the document specifies a different hash, update `BASELINE.txt` and run `./generate.sh --refresh-baseline`.
-- `harbor==0.25.0` is enforced by `generate.sh`; newer/older versions abort the run.
-- No API keys, credentials, or network access are needed at task runtime (`network_mode = "no-network"`).
+- Baseline: jsoncpp `93acc7b`, vendored as a tarball with a recorded SHA-256; `./generate.sh --refresh-baseline` re-clones and re-verifies it.
+- Deck: the supplied 11-slide `Innodata _ IDEA SUBMISSION.pptx` is filled in place by `factory/deck.py` and bundled into the submission zip. Task packages use the canonical Harbor layout.
+- `harbor==0.25.0` is enforced by `generate.sh`; any other version aborts the run.
+- No API keys, credentials, or runtime network access are required (`network_mode = "no-network"`).

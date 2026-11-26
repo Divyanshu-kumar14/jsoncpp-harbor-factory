@@ -84,23 +84,23 @@ digraph arch {
 """
 
 TERMINAL_LINES = [
-    ("cmd", "$ ./generate.sh --repo jsoncpp --n 3"),
+    ("cmd", "$ ./generate.sh --repo jsoncpp --n 5"),
     ("stage", "== harbor 0.25.0 / docker 29.10.1 =="),
-    ("stage", "== miner =="),
     ("out", "miner: 579 functions across 12 files using ast-grep"),
     ("out", "miner: 31 matching upstream issues"),
-    ("stage", "== generator =="),
     ("out", "generate: task-001 (easy) CharReaderBuilder.validateUTF8"),
     ("out", "generate: task-002 (medium) Value.findPointer"),
     ("out", "generate: task-003 (hard) StreamWriterBuilder.precisionMode"),
-    ("stage", "== lint =="),
-    ("good", "packager: harbor lint exit=0 findings=0"),
-    ("stage", "== validator (oracle expects 1, no-op expects 0) =="),
+    ("out", "generate: task-004 (medium) Value.mergePatch"),
+    ("out", "generate: task-005 (medium) CharReaderBuilder.strictNumbers"),
+    ("stage", "== validator (oracle 1 / no-op 0) =="),
     ("good", "task-001: PASS (positive=1.0, negative=0.0)"),
     ("good", "task-002: PASS (positive=1.0, negative=0.0)"),
     ("good", "task-003: PASS (positive=1.0, negative=0.0)"),
-    ("stage", "== packager =="),
-    ("good", "packager: wrote submission/jsoncpp-harbor-tasks.zip (47 entries)"),
+    ("good", "task-004: PASS (positive=1.0, negative=0.0)"),
+    ("good", "task-005: PASS (positive=1.0, negative=0.0)"),
+    ("good", "packager: harbor lint exit=0 findings=0"),
+    ("good", "packager: wrote submission/jsoncpp-harbor-tasks.zip"),
 ]
 
 
@@ -286,7 +286,7 @@ def build(template: Path, output: Path, work: Path) -> None:
     add_line(tf, "The generator refuses any capability already present at the baseline, "
                  "then applies the reference patch, builds jsoncpp and runs the hidden "
                  "test before a package is allowed to exist.", size=13, color=DARK_BODY)
-    add_line(tf, "Three tasks cover the reader, DOM and writer. All six gate runs "
+    add_line(tf, "Five tasks cover the reader, DOM and writer. All ten gate runs "
                  "returned 1 with the reference solution and 0 with a no-op solution.",
              size=13, color=DARK_BODY)
 
@@ -304,16 +304,16 @@ def build(template: Path, output: Path, work: Path) -> None:
          "rebuild of the agent's source."),
         ("USP",
          "Non-triviality is enforced mechanically, and every reward is backed by a raw "
-         "1/0 file. The same pipeline reproduces all three tasks from one command."),
+         "1/0 file. The same pipeline reproduces all five tasks from one command."),
     ]:
         add_line(tf, heading, size=14, color=INK, font=TITLE_FONT,
                  space_before=8, space_after=2)
         add_line(tf, body, size=12.5, color=DARK_BODY, space_after=3)
 
     # 04 — features
-    tf = content_slide(slides[3], "03 · FEATURES", "Six stages, each fail-closed")
+    tf = content_slide(slides[3], "03 · FEATURES", "Five stages, each fail-closed")
     for item in [
-        "ast-grep function map: 579 definitions across 12 files, plus 31 upstream issues from gh.",
+        "ast-grep map: 579 function definitions across 12 files, plus 31 matching issues from the latest gh sample.",
         "Novelty gate: absent-marker checks reject features that already exist at 93acc7b.",
         "Preflight: patch, symbol check, CMake build and hidden test before packaging.",
         "Harbor 0.25 packaging: schema 1.4, separate verifier, digest-pinned Ubuntu 24.04.",
@@ -337,7 +337,7 @@ def build(template: Path, output: Path, work: Path) -> None:
     # 06 — interface
     content_slide(slides[5], "05 · INTERFACE", "One command, every stage", height=0.95)
     slides[5].shapes.add_picture(str(term_png), Inches(1.3), Inches(1.72), width=Inches(7.4))
-    caption(slides[5], "./generate.sh --repo jsoncpp --n 3 — the full reproduction path.",
+    caption(slides[5], "./generate.sh --repo jsoncpp --n 5 — the full reproduction path.",
             5.05, left=1.3, width=7.4)
 
     # 07 — architecture
@@ -372,8 +372,8 @@ def build(template: Path, output: Path, work: Path) -> None:
     tf = content_slide(slides[8], "08 · COST", "Near-zero marginal cost")
     for item in [
         "All components are open source: jsoncpp (MIT), Harbor, ast-grep, Docker.",
-        "Full 3-task regeneration plus six Harbor trials: under 10 minutes on a 16-core laptop.",
-        "Task and evidence payload is 567 KB; the 11-slide deck brings the bundle to 6.5 MB.",
+        "Ten Harbor trials over five tasks on one 16-core host; no paid APIs or cloud spend.",
+        "Five 183 KB source snapshots keep every task self-contained and offline.",
         "Adding a task costs one catalogue entry, one patch and one hidden test — not a new harness.",
     ]:
         add_line(tf, item, size=13, color=DARK_BODY, bullet="•", space_after=7)
@@ -381,12 +381,12 @@ def build(template: Path, output: Path, work: Path) -> None:
     # 10 — deliverables
     tf = content_slide(slides[9], "09 · DELIVERABLES", "What the judges can run")
     for item in [
-        "github.com/Divyanshu-kumar14/jsoncpp-harbor-factory — public, 77 files.",
-        "tasks/task-001-strict-utf8 · task-002-json-pointer · task-003-roundtrip-precision.",
-        "submission/jsoncpp-harbor-tasks.zip — 47 entries, canonical Harbor layout.",
-        "evidence/rewards/*.txt — raw 1/0 files from all six trials.",
+        "github.com/Divyanshu-kumar14/jsoncpp-harbor-factory — public and reproducible.",
+        "5 tasks: strict UTF-8 · JSON Pointer · round-trip precision · merge patch · strict numbers.",
+        "submission/jsoncpp-harbor-tasks.zip — tasks, raw rewards, docs and this deck.",
+        "evidence/rewards/*.txt — raw 1/0 files from all ten trials.",
         "validation.log · evidence/lint.json · README.md · ARCHITECTURE.md.",
-        "Verified: harbor lint 0 findings; positive 1.0, negative 0.0 on every task.",
+        "Verified: harbor lint 0 findings; 10/10 gate trials correct.",
     ]:
         add_line(tf, item, size=12.5, color=DARK_BODY, bullet="•", space_after=5)
 

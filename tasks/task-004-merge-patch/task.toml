@@ -1,0 +1,37 @@
+schema_version = "1.4"
+artifacts = ["/app/jsoncpp"]
+
+[task]
+name = "innodata/jsoncpp-merge-patch"
+version = "1.0.0"
+description = "Add Value::mergePatch implementing recursive object merge, null deletion, and wholesale array replacement per RFC 7386."
+authors = [{ name = "Innodata AI Hackathon Team" }]
+keywords = ["jsoncpp", "dom", "merge-patch", "rfc7386", "configuration"]
+
+[metadata]
+author_name = "Innodata AI Hackathon Team"
+difficulty = "medium"
+category = "cpp-json-dom"
+tags = ["jsoncpp", "dom", "merge-patch", "rfc7386", "configuration"]
+expert_time_estimate_min = 30.0
+junior_time_estimate_min = 60.0
+baseline_commit = "93acc7b155048f1a66c43235cc205519f1e7a6ea"
+feature = "Value.mergePatch"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+
+[verifier.env]
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+build_timeout_sec = 900
+os = "linux"
+
+[environment.env]
+
+[solution.env]

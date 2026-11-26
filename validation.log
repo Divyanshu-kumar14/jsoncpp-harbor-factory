@@ -1,14 +1,14 @@
 # jsoncpp harbor factory validation
-# started 2026-11-26T23:01:02Z
-[2026-11-26T23:01:02Z] ===== task-001 (task-001-strict-utf8) =====
-[2026-11-26T23:01:02Z] $ docker build -q -t factory-task-001-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment
-[2026-11-26T23:01:02Z] sha256:de931ad1a1d210637e4eb5ecec27a6ac2a844c89c5f98ad31e99e7587c7ded52
-[2026-11-26T23:01:02Z] exit=0
-[2026-11-26T23:01:02Z] $ docker build -q -t factory-task-001-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests
-[2026-11-26T23:01:03Z] sha256:e4fad8c5fc78d16b7bd65c0259605f6776428884498d6d6b8a382bac83c3d592
-[2026-11-26T23:01:03Z] exit=0
-[2026-11-26T23:01:03Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:06Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+# started 2026-11-26T23:30:04Z
+[2026-11-26T23:30:04Z] ===== task-001 (task-001-strict-utf8) =====
+[2026-11-26T23:30:04Z] $ docker build -q -t factory-task-001-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/environment
+[2026-11-26T23:30:04Z] sha256:beba3a109e1f9dae22acec79c15a0bc3239c41f3e7f565614a3b7dc5668779fa
+[2026-11-26T23:30:04Z] exit=0
+[2026-11-26T23:30:04Z] $ docker build -q -t factory-task-001-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8/tests
+[2026-11-26T23:30:04Z] sha256:050af962134f4a0fac5413fffafdca491f8f0f813d1c7c97b93ed316796fa366
+[2026-11-26T23:30:04Z] exit=0
+[2026-11-26T23:30:04Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:09Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -24,7 +24,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 6m 24s
+Total runtime: 35m 26s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-positive
 /result.json
@@ -33,10 +33,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-positive
 `
-[2026-11-26T23:01:06Z] exit=0
-[2026-11-26T23:01:06Z] task-001: positive reward=1.0
-[2026-11-26T23:01:06Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:09Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:30:09Z] exit=0
+[2026-11-26T23:30:09Z] task-001: positive reward=1.0
+[2026-11-26T23:30:09Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-001-strict-utf8 -a oracle -e docker -y --job-name validate-task-001-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:13Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -52,7 +52,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 5m 19s
+Total runtime: 34m 23s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-negative
 /result.json
@@ -61,18 +61,18 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-001-negative
 `
-[2026-11-26T23:01:09Z] exit=0
-[2026-11-26T23:01:09Z] task-001: negative reward=0.0
-[2026-11-26T23:01:09Z] task-001: PASS (positive=1.0, negative=0.0)
-[2026-11-26T23:01:09Z] ===== task-002 (task-002-json-pointer) =====
-[2026-11-26T23:01:09Z] $ docker build -q -t factory-task-002-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment
-[2026-11-26T23:01:09Z] sha256:fe0a5ec4cebfbd0370f01141f2a717dfff53c79e3ff321204e5aa7b87cc9839b
-[2026-11-26T23:01:09Z] exit=0
-[2026-11-26T23:01:09Z] $ docker build -q -t factory-task-002-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests
-[2026-11-26T23:01:09Z] sha256:d463a52ea6b93d5b6906d5153be5db1fb53aaceffdb48569fefc74609f1116f8
-[2026-11-26T23:01:09Z] exit=0
-[2026-11-26T23:01:09Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:12Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:30:13Z] exit=0
+[2026-11-26T23:30:13Z] task-001: negative reward=0.0
+[2026-11-26T23:30:13Z] task-001: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:30:13Z] ===== task-002 (task-002-json-pointer) =====
+[2026-11-26T23:30:13Z] $ docker build -q -t factory-task-002-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/environment
+[2026-11-26T23:30:13Z] sha256:ad8e1da931b9d1a424b496100cda383803929875ad6a00ceabe8d36280960ab0
+[2026-11-26T23:30:13Z] exit=0
+[2026-11-26T23:30:13Z] $ docker build -q -t factory-task-002-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer/tests
+[2026-11-26T23:30:13Z] sha256:d247db76727a02d941801fa5458982fec49ce92ecadd2b441c1aa058efea5874
+[2026-11-26T23:30:13Z] exit=0
+[2026-11-26T23:30:13Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:17Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -88,7 +88,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 4m 32s
+Total runtime: 33m 37s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-positive
 /result.json
@@ -97,10 +97,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-positive
 `
-[2026-11-26T23:01:12Z] exit=0
-[2026-11-26T23:01:12Z] task-002: positive reward=1.0
-[2026-11-26T23:01:12Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:15Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:30:17Z] exit=0
+[2026-11-26T23:30:17Z] task-002: positive reward=1.0
+[2026-11-26T23:30:17Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-002-json-pointer -a oracle -e docker -y --job-name validate-task-002-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:20Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -116,7 +116,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 3m 48s
+Total runtime: 32m 53s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-negative
 /result.json
@@ -125,18 +125,18 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-002-negative
 `
-[2026-11-26T23:01:15Z] exit=0
-[2026-11-26T23:01:15Z] task-002: negative reward=0.0
-[2026-11-26T23:01:15Z] task-002: PASS (positive=1.0, negative=0.0)
-[2026-11-26T23:01:15Z] ===== task-003 (task-003-roundtrip-precision) =====
-[2026-11-26T23:01:15Z] $ docker build -q -t factory-task-003-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment
-[2026-11-26T23:01:15Z] sha256:7138c740dd7aa00b1513296dabc1dfc185aff4efb76780bb8959abd11e84faff
-[2026-11-26T23:01:15Z] exit=0
-[2026-11-26T23:01:15Z] $ docker build -q -t factory-task-003-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests
-[2026-11-26T23:01:16Z] sha256:588b29512957e1756ad14ef51d48cb7ed71687f533e90c8ef3e547350e6acd17
-[2026-11-26T23:01:16Z] exit=0
-[2026-11-26T23:01:16Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:19Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:30:20Z] exit=0
+[2026-11-26T23:30:20Z] task-002: negative reward=0.0
+[2026-11-26T23:30:20Z] task-002: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:30:20Z] ===== task-003 (task-003-roundtrip-precision) =====
+[2026-11-26T23:30:20Z] $ docker build -q -t factory-task-003-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/environment
+[2026-11-26T23:30:20Z] sha256:8d28c51d78444c0944e4b426dfea747ae002d74cce24a8207d672c7e476abfa2
+[2026-11-26T23:30:20Z] exit=0
+[2026-11-26T23:30:20Z] $ docker build -q -t factory-task-003-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision/tests
+[2026-11-26T23:30:21Z] sha256:fcc580f1061251f3a7dd8d3af7ec7f397a592fbf77269634f20970d2e6ad499c
+[2026-11-26T23:30:21Z] exit=0
+[2026-11-26T23:30:21Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:24Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -152,7 +152,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 3m 11s
+Total runtime: 32m 17s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-positive
 /result.json
@@ -161,10 +161,10 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-positive
 `
-[2026-11-26T23:01:19Z] exit=0
-[2026-11-26T23:01:19Z] task-003: positive reward=1.0
-[2026-11-26T23:01:19Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
-[2026-11-26T23:01:21Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+[2026-11-26T23:30:24Z] exit=0
+[2026-11-26T23:30:24Z] task-003: positive reward=1.0
+[2026-11-26T23:30:24Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-003-roundtrip-precision -a oracle -e docker -y --job-name validate-task-003-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:27Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
 
 adhoc • oracle
 ┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
@@ -180,7 +180,7 @@ adhoc • oracle
 └────────┴───────┘
 
 Job Info
-Total runtime: 2m 25s
+Total runtime: 31m 31s
 Results written to 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-negative
 /result.json
@@ -189,7 +189,135 @@ Inspect results by running `harbor view
 Share results by running `harbor upload 
 /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-003-negative
 `
-[2026-11-26T23:01:21Z] exit=0
-[2026-11-26T23:01:21Z] task-003: negative reward=0.0
-[2026-11-26T23:01:21Z] task-003: PASS (positive=1.0, negative=0.0)
-[2026-11-26T23:01:22Z] validation report: /home/rtx/github/jsoncpp-harbor-factory/evidence/validation.json passed=True
+[2026-11-26T23:30:27Z] exit=0
+[2026-11-26T23:30:27Z] task-003: negative reward=0.0
+[2026-11-26T23:30:27Z] task-003: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:30:27Z] ===== task-004 (task-004-merge-patch) =====
+[2026-11-26T23:30:27Z] $ docker build -q -t factory-task-004-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-004-merge-patch/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-004-merge-patch/environment
+[2026-11-26T23:30:28Z] sha256:100268d129361839240eaed4700f9dbf5eceb348295d7a6f24f57da1c187f0c8
+[2026-11-26T23:30:28Z] exit=0
+[2026-11-26T23:30:28Z] $ docker build -q -t factory-task-004-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-004-merge-patch/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-004-merge-patch/tests
+[2026-11-26T23:30:28Z] sha256:849a95e7112551e8e1405fe1ae1f854c59e522e242cf75aeed3ca805ff01e534
+[2026-11-26T23:30:28Z] exit=0
+[2026-11-26T23:30:28Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-004-merge-patch -a oracle -e docker -y --job-name validate-task-004-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:31Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+
+adhoc • oracle
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 1.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 7m 56s
+Results written to 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-004-positive
+/result.json
+Inspect results by running `harbor view 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs`
+Share results by running `harbor upload 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-004-positive
+`
+[2026-11-26T23:30:31Z] exit=0
+[2026-11-26T23:30:31Z] task-004: positive reward=1.0
+[2026-11-26T23:30:31Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-004-merge-patch -a oracle -e docker -y --job-name validate-task-004-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:35Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+
+adhoc • oracle
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 0.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 0.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 7m 12s
+Results written to 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-004-negative
+/result.json
+Inspect results by running `harbor view 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs`
+Share results by running `harbor upload 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-004-negative
+`
+[2026-11-26T23:30:35Z] exit=0
+[2026-11-26T23:30:35Z] task-004: negative reward=0.0
+[2026-11-26T23:30:35Z] task-004: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:30:35Z] ===== task-005 (task-005-strict-numbers) =====
+[2026-11-26T23:30:35Z] $ docker build -q -t factory-task-005-env:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-005-strict-numbers/environment/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-005-strict-numbers/environment
+[2026-11-26T23:30:35Z] sha256:a2436971196871a1cfc828de0bad18b9c486f7010ec8b1a4b196857bec7bfa71
+[2026-11-26T23:30:35Z] exit=0
+[2026-11-26T23:30:35Z] $ docker build -q -t factory-task-005-verifier:latest -f /home/rtx/github/jsoncpp-harbor-factory/tasks/task-005-strict-numbers/tests/Dockerfile /home/rtx/github/jsoncpp-harbor-factory/tasks/task-005-strict-numbers/tests
+[2026-11-26T23:30:35Z] sha256:fe12c7d3fa1d6440e5ec62a414811de3242689cdb1f71141d1a5ae0bdae60e56
+[2026-11-26T23:30:35Z] exit=0
+[2026-11-26T23:30:35Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/tasks/task-005-strict-numbers -a oracle -e docker -y --job-name validate-task-005-positive --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:39Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+
+adhoc • oracle
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 1.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 6m 35s
+Results written to 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-005-positive
+/result.json
+Inspect results by running `harbor view 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs`
+Share results by running `harbor upload 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-005-positive
+`
+[2026-11-26T23:30:39Z] exit=0
+[2026-11-26T23:30:39Z] task-005: positive reward=1.0
+[2026-11-26T23:30:39Z] $ harbor run -p /home/rtx/github/jsoncpp-harbor-factory/.work/negative/task-005-strict-numbers -a oracle -e docker -y --job-name validate-task-005-negative --jobs-dir /home/rtx/github/jsoncpp-harbor-factory/evidence/jobs -q
+[2026-11-26T23:30:42Z] ⠋ 1/1 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--
+
+adhoc • oracle
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 0.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 0.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 5m 52s
+Results written to 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-005-negative
+/result.json
+Inspect results by running `harbor view 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs`
+Share results by running `harbor upload 
+/home/rtx/github/jsoncpp-harbor-factory/evidence/jobs/validate-task-005-negative
+`
+[2026-11-26T23:30:42Z] exit=0
+[2026-11-26T23:30:42Z] task-005: negative reward=0.0
+[2026-11-26T23:30:42Z] task-005: PASS (positive=1.0, negative=0.0)
+[2026-11-26T23:30:42Z] validation report: /home/rtx/github/jsoncpp-harbor-factory/evidence/validation.json passed=True

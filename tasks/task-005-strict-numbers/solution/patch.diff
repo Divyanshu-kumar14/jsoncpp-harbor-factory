@@ -1,0 +1,111 @@
+diff --git c/include/json/reader.h w/include/json/reader.h
+index d4db75a..55723bd 100644
+--- c/include/json/reader.h
++++ w/include/json/reader.h
+@@ -355,6 +355,11 @@ public:
+    * - `"skipBom": false or true`
+    *   - If true, if the input starts with the Unicode byte order mark (BOM),
+    *     it is skipped.
++   * - `"strictNumbers": false or true`
++   *   - If true, numbers must match the RFC 8259 grammar exactly. Leading
++   *     zeros (`01`), a leading `+`, a trailing decimal point (`1.`), and an
++   *     empty exponent (`1e`) are rejected. Defaults to false for
++   *     compatibility with lenient jsoncpp inputs.
+    *
+    * You can examine `settings_` yourself to see the defaults. You can also
+    * write and read them just like any JSON Value.
+diff --git c/src/lib_json/json_reader.cpp w/src/lib_json/json_reader.cpp
+index 39af2c4..b86bc5e 100644
+--- c/src/lib_json/json_reader.cpp
++++ w/src/lib_json/json_reader.cpp
+@@ -862,6 +862,7 @@ public:
+   bool rejectDupKeys_;
+   bool allowSpecialFloats_;
+   bool skipBom_;
++  bool strictNumbers_;
+   size_t stackLimit_;
+ }; // OurFeatures
+ 
+@@ -1576,7 +1577,50 @@ bool OurReader::decodeNumber(Token& token) {
+   return true;
+ }
+ 
++namespace {
++// RFC 8259, Section 6: -?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?
++bool isStrictJsonNumber(const char* begin, const char* end) {
++  const char* p = begin;
++  if (p == end)
++    return false;
++  if (*p == '-')
++    ++p;
++  if (p == end)
++    return false;
++  if (*p == '0') {
++    ++p;
++  } else if (*p >= '1' && *p <= '9') {
++    while (p != end && *p >= '0' && *p <= '9')
++      ++p;
++  } else {
++    return false;
++  }
++  if (p != end && *p == '.') {
++    ++p;
++    if (p == end || *p < '0' || *p > '9')
++      return false;
++    while (p != end && *p >= '0' && *p <= '9')
++      ++p;
++  }
++  if (p != end && (*p == 'e' || *p == 'E')) {
++    ++p;
++    if (p != end && (*p == '+' || *p == '-'))
++      ++p;
++    if (p == end || *p < '0' || *p > '9')
++      return false;
++    while (p != end && *p >= '0' && *p <= '9')
++      ++p;
++  }
++  return p == end;
++}
++} // namespace
++
+ bool OurReader::decodeNumber(Token& token, Value& decoded) {
++  if (features_.strictNumbers_ &&
++      !isStrictJsonNumber(token.start_, token.end_))
++    return addError("'" + String(token.start_, token.end_) +
++                        "' is not a valid JSON number.",
++                    token);
+   // Attempts to parse the number as an integer. If the number is
+   // larger than the maximum supported value of an integer then
+   // we decode the number as a double.
+@@ -1951,6 +1995,7 @@ CharReader* CharReaderBuilder::newCharReader() const {
+   features.rejectDupKeys_ = settings_["rejectDupKeys"].asBool();
+   features.allowSpecialFloats_ = settings_["allowSpecialFloats"].asBool();
+   features.skipBom_ = settings_["skipBom"].asBool();
++  features.strictNumbers_ = settings_["strictNumbers"].asBool();
+   return new OurCharReader(collectComments, features);
+ }
+ 
+@@ -1968,6 +2013,7 @@ bool CharReaderBuilder::validate(Json::Value* invalid) const {
+       "rejectDupKeys",
+       "allowSpecialFloats",
+       "skipBom",
++      "strictNumbers",
+   };
+   for (auto si = settings_.begin(); si != settings_.end(); ++si) {
+     auto key = si.name();
+@@ -1998,6 +2044,7 @@ void CharReaderBuilder::strictMode(Json::Value* settings) {
+   (*settings)["rejectDupKeys"] = true;
+   (*settings)["allowSpecialFloats"] = false;
+   (*settings)["skipBom"] = true;
++  (*settings)["strictNumbers"] = true;
+   //! [CharReaderBuilderStrictMode]
+ }
+ // static
+@@ -2015,6 +2062,7 @@ void CharReaderBuilder::setDefaults(Json::Value* settings) {
+   (*settings)["rejectDupKeys"] = false;
+   (*settings)["allowSpecialFloats"] = false;
+   (*settings)["skipBom"] = true;
++  (*settings)["strictNumbers"] = false;
+   //! [CharReaderBuilderDefaults]
+ }
+ // static

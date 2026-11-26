@@ -1,0 +1,52 @@
+diff --git c/include/json/value.h w/include/json/value.h
+index 171f20a..b44658c 100644
+--- c/include/json/value.h
++++ w/include/json/value.h
+@@ -638,6 +638,13 @@ public:
+    */
+   bool removeIndex(ArrayIndex index, Value* removed);
+ 
++  /// Apply an RFC 7386 JSON Merge Patch to this value.
++  ///
++  /// A non-object patch replaces the whole value. For an object patch, a
++  /// null member deletes the key, a nested object merges recursively, and any
++  /// other value replaces the target member. Arrays are replaced wholesale.
++  void mergePatch(const Value& patch);
++
+ #ifdef JSONCPP_HAS_STRING_VIEW
+   /// Return true if the object has a member named key.
+   /// \param key may contain embedded nulls.
+diff --git c/src/lib_json/json_value.cpp w/src/lib_json/json_value.cpp
+index 5d3ddfd..29e4a8f 100644
+--- c/src/lib_json/json_value.cpp
++++ w/src/lib_json/json_value.cpp
+@@ -1342,6 +1342,29 @@ bool Value::removeIndex(ArrayIndex index, Value* removed) {
+   return true;
+ }
+ 
++// RFC 7386 JSON Merge Patch.
++void Value::mergePatch(const Value& patch) {
++  if (&patch == this) {
++    // Iterating a patch that aliases the target would invalidate iterators.
++    Value copy(patch);
++    mergePatch(copy);
++    return;
++  }
++  if (!patch.isObject()) {
++    *this = patch;
++    return;
++  }
++  if (!isObject())
++    *this = Value(objectValue);
++  for (auto it = patch.begin(); it != patch.end(); ++it) {
++    const String key = it.name();
++    if (it->isNull())
++      removeMember(key);
++    else
++      (*this)[key].mergePatch(*it);
++  }
++}
++
+ bool Value::isMember(char const* begin, char const* end) const {
+   Value const* value = find(begin, end);
+   return nullptr != value;

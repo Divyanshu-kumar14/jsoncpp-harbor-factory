@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T23:00:50.286630+00:00",
+  "generated_at": "2026-11-26T23:29:41.236915+00:00",
   "repo": "https://github.com/open-source-parsers/jsoncpp",
   "commit": "93acc7b155048f1a66c43235cc205519f1e7a6ea",
   "source": "/home/rtx/github/jsoncpp-harbor-factory/.work/baseline-src",
@@ -3291,6 +3291,26 @@
       "absence_probe": [
         "src/lib_json/json_writer.cpp: 'precisionMode'",
         "include/json/writer.h: 'precisionMode'"
+      ]
+    },
+    {
+      "task_id": "task-004",
+      "feature": "Value.mergePatch",
+      "difficulty": "medium",
+      "category": "cpp-json-dom",
+      "absence_probe": [
+        "include/json/value.h: 'mergePatch'",
+        "src/lib_json/json_value.cpp: 'mergePatch'"
+      ]
+    },
+    {
+      "task_id": "task-005",
+      "feature": "CharReaderBuilder.strictNumbers",
+      "difficulty": "medium",
+      "category": "cpp-json-reader",
+      "absence_probe": [
+        "src/lib_json/json_reader.cpp: 'strictNumbers'",
+        "include/json/reader.h: 'strictNumbers'"
       ]
     }
   ]

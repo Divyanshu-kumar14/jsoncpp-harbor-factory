@@ -11,7 +11,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 REPO="jsoncpp"
-N="3"
+N="5"
 DO_VALIDATE=1
 DO_PACKAGE=1
 SKIP_PREFLIGHT=0

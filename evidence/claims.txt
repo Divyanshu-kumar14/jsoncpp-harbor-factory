@@ -1,0 +1,17 @@
+# Measured claims used in README / ARCHITECTURE / the deck.
+# Each value is traceable to the artifact named beside it.
+mining_functions=579            # evidence/mining_report.json -> functions.total_functions
+mining_issues=31                # evidence/mining_report.json -> issues.issues | length
+tasks=5                         # evidence/validation.json -> tasks | length
+gate_trials=10                  # 5 tasks x positive/negative
+gate_trials_correct=10          # evidence/validation.json -> all passed
+harbor_lint_findings=0          # evidence/lint.json == []
+validation_duration_sec=38.2    # evidence/validation.json -> duration_sec (warm image cache)
+validation_duration_rounded=38  # derived from duration_sec
+baseline_failures_task_001=17   # evidence/baseline_gate.txt
+baseline_failures_task_003=10   # evidence/baseline_gate.txt
+baseline_failures_task_005=14   # evidence/baseline_gate.txt
+source_archive_kib=183          # baseline/jsoncpp-93acc7b.tar.gz (187031 bytes)
+harbor_version=0.25.0           # evidence/validation.json -> harbor_version
+schema_version=1.4              # tasks/*/task.toml
+ubuntu_version=24.04            # tasks/*/environment/Dockerfile

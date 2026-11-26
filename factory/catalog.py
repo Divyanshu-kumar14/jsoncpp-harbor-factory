@@ -120,6 +120,60 @@ TASKS: list[TaskSpec] = [
         ],
         metadata={"issue": "420", "numeric": "binary64"},
     ),
+    TaskSpec(
+        task_id="task-004",
+        slug="merge-patch",
+        task_name="innodata/jsoncpp-merge-patch",
+        title="RFC 7386 JSON Merge Patch for Json::Value",
+        description=(
+            "Add Value::mergePatch implementing recursive object merge, null "
+            "deletion, and wholesale array replacement per RFC 7386."
+        ),
+        difficulty="medium",
+        category="cpp-json-dom",
+        feature="Value.mergePatch",
+        tags=["jsoncpp", "dom", "merge-patch", "rfc7386", "configuration"],
+        expert_min=30.0,
+        junior_min=60.0,
+        hidden_tests=["test_merge_patch.cpp"],
+        absent_markers=[
+            ("include/json/value.h", "mergePatch"),
+            ("src/lib_json/json_value.cpp", "mergePatch"),
+        ],
+        present_markers=[
+            ("include/json/value.h", "mergePatch"),
+            ("src/lib_json/json_value.cpp", "mergePatch"),
+            ("src/lib_json/json_value.cpp", "RFC 7386"),
+        ],
+        metadata={"rfc": "7386", "api_surface": "DOM"},
+    ),
+    TaskSpec(
+        task_id="task-005",
+        slug="strict-numbers",
+        task_name="innodata/jsoncpp-strict-numbers",
+        title="RFC 8259 number validation for jsoncpp",
+        description=(
+            "Add CharReaderBuilder strictNumbers to reject leading zeros, a "
+            "leading plus, trailing decimal points and empty exponents."
+        ),
+        difficulty="medium",
+        category="cpp-json-reader",
+        feature="CharReaderBuilder.strictNumbers",
+        tags=["jsoncpp", "reader", "rfc8259", "numbers", "validation"],
+        expert_min=25.0,
+        junior_min=50.0,
+        hidden_tests=["test_strict_numbers.cpp"],
+        absent_markers=[
+            ("src/lib_json/json_reader.cpp", "strictNumbers"),
+            ("include/json/reader.h", "strictNumbers"),
+        ],
+        present_markers=[
+            ("src/lib_json/json_reader.cpp", "strictNumbers"),
+            ("src/lib_json/json_reader.cpp", "not a valid JSON number"),
+            ("include/json/reader.h", "strictNumbers"),
+        ],
+        metadata={"rfc": "8259", "bug_class": "input-validation"},
+    ),
 ]
 
 
