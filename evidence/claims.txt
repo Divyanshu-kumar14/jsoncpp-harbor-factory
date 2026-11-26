@@ -15,3 +15,4 @@ source_archive_kib=183          # baseline/jsoncpp-93acc7b.tar.gz (187031 bytes)
 harbor_version=0.25.0           # evidence/validation.json -> harbor_version
 schema_version=1.4              # tasks/*/task.toml
 ubuntu_version=24.04            # tasks/*/environment/Dockerfile
+sha256_bits=256                 # standard digest width; BASELINE.txt archive_sha256 is 64 hex chars

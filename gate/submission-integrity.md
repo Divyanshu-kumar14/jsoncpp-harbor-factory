@@ -23,7 +23,7 @@ Tool: `submission-integrity/tools/claim_check.py`
 ```text
 prose:    README.md ARCHITECTURE.md gate/deck_text.md
 evidence: evidence/ validation.log BASELINE.txt submission/MANIFEST.json tasks/
-result:   0 unverified number(s); 2832 evidence file(s) scanned.
+result:   0 unverified number(s) across the committed evidence set.
 ```
 
 Supporting evidence added for claims that previously lived only in terminal
